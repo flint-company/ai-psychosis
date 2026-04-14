@@ -1039,6 +1039,80 @@ html.js .bar-row.is-visible .bar-row__fill { inset: 0 var(--inset, 100%) 0 0; }
   padding: 16px 20px;
   border-left: 2px solid var(--accent);
 }
+.ai-credit__value strong { color: #f0eee8; }
+.corpus-details {
+  margin-top: 20px;
+}
+.corpus-details summary {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #d89a9a;
+  cursor: pointer;
+  padding: 10px 14px;
+  border: 1px solid #2a2a2a;
+  background: rgba(255,255,255,0.02);
+  user-select: none;
+  list-style: none;
+  display: inline-block;
+}
+.corpus-details summary::-webkit-details-marker { display: none; }
+.corpus-details summary::before {
+  content: "+ ";
+  color: var(--accent);
+  font-weight: 900;
+}
+.corpus-details[open] summary::before { content: "− "; }
+.corpus-details summary:hover { background: rgba(255,255,255,0.05); color: #f0eee8; }
+.corpus-list {
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: corpus;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px 32px;
+}
+.corpus-list li {
+  counter-increment: corpus;
+  padding: 8px 0 8px 38px;
+  border-top: 1px solid #222;
+  position: relative;
+  font-family: var(--sans);
+  font-size: 12px;
+  line-height: 1.45;
+  color: #c8c4ba;
+}
+.corpus-list li::before {
+  content: counter(corpus);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  font-size: 10px;
+  color: #666;
+  width: 30px;
+  text-align: right;
+  padding-right: 8px;
+  font-variant-numeric: tabular-nums;
+}
+.corpus-list a {
+  color: #e6e3da;
+  text-decoration: none;
+  display: inline;
+}
+.corpus-list a:hover { color: var(--accent); text-decoration: underline; }
+.corpus-dom {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 6px;
+  font-size: 10px;
+  color: #888;
+  background: rgba(255,255,255,0.04);
+  border-radius: 2px;
+  white-space: nowrap;
+}
 
 /* -------- BIBLIOGRAPHY -------- */
 .bibliography { padding-bottom: 60px; }
@@ -1144,6 +1218,7 @@ html:not(.js) .hero__hl::after { transform: scaleX(1) !important; animation: non
   .ai-credit__label { padding-top: 12px; }
   .themes__grid { grid-template-columns: 1fr; }
   .concl__limits { padding: 24px 20px 24px 28px; }
+  .corpus-list { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -1821,19 +1896,147 @@ html:not(.js) .hero__hl::after { transform: scaleX(1) !important; animation: non
     <div class="ai-credit__grid">
 
       <div class="ai-credit__label">Modèle</div>
-      <div class="ai-credit__value ai-credit__value--placeholder">[À compléter — nom et version du modèle]</div>
+      <div class="ai-credit__value">Claude Opus 4.6 — Anthropic</div>
 
-      <div class="ai-credit__label">Mode / Agent</div>
-      <div class="ai-credit__value ai-credit__value--placeholder">[À compléter — Deep Research, agent, etc.]</div>
+      <div class="ai-credit__label">Modes activés</div>
+      <div class="ai-credit__value">Research mode &middot; Web search mode</div>
 
       <div class="ai-credit__label">Date de génération</div>
       <div class="ai-credit__value ai-credit__value--placeholder">[À compléter]</div>
 
       <div class="ai-credit__label">Prompt</div>
-      <div class="ai-credit__value ai-credit__value--placeholder"><pre>[À compléter — coller le prompt intégral ici]</pre></div>
+      <div class="ai-credit__value"><pre>Peux-tu faire une recherche profonde sur l'AI psychosis ?
+Je veux des conclusions de papier de recherche.</pre></div>
 
       <div class="ai-credit__label">Relecture humaine</div>
       <div class="ai-credit__value ai-credit__value--placeholder">[À compléter — nom du ou des relecteurs, date de vérification des sources]</div>
+
+      <div class="ai-credit__label">Corpus initial</div>
+      <div class="ai-credit__value">
+        <strong>113 sources</strong> consultées par le modèle lors de la recherche web.
+        Articles peer-reviewed, preprints, rapports institutionnels, couverture journalistique.
+        Les <strong>39 références</strong> citées explicitement dans l'enquête
+        (section&nbsp;IX&nbsp;·&nbsp;Bibliographie) en sont un sous-ensemble sélectionné pour pertinence
+        et vérification factuelle.
+        <details class="corpus-details">
+          <summary>Développer la liste complète des 113 sources</summary>
+          <ol class="corpus-list">
+            <li><a href="https://www.psychiatry.org/getattachment/a05f1fa4-2016-422c-bc53-5960c47890bb/Position-Statement-Role-of-AI.pdf" target="_blank" rel="noopener">Position Statement: Role of AI — American Psychiatric Association</a> <span class="corpus-dom">psychiatry.org</span></li>
+            <li><a href="https://www.apa.org/news/press/releases/2025/11/ai-wellness-apps-mental-health" target="_blank" rel="noopener">Artificial intelligence, wellness apps alone cannot solve mental health crisis</a> <span class="corpus-dom">apa.org</span></li>
+            <li><a href="https://jedfoundation.org/american-psychological-association-on-generative-ai/" target="_blank" rel="noopener">When Young People Turn to AI for Emotional Support: JED's Response</a> <span class="corpus-dom">jedfoundation.org</span></li>
+            <li><a href="https://www.apaservices.org/practice/business/technology/artificial-intelligence-chatbots-therapists" target="_blank" rel="noopener">Using generic AI chatbots for mental health support: A dangerous trend</a> <span class="corpus-dom">apaservices.org</span></li>
+            <li><a href="https://www.apa.org/topics/artificial-intelligence-machine-learning/health-advisory-ai-chatbots-wellness-apps-mental-health.pdf" target="_blank" rel="noopener">APA Health Advisory on Generative AI Chatbots and Wellness Apps for Mental Health (PDF)</a> <span class="corpus-dom">apa.org</span></li>
+            <li><a href="https://www.apa.org/topics/artificial-intelligence-machine-learning/health-advisory-chatbots-wellness-apps" target="_blank" rel="noopener">Health advisory: Use of generative AI chatbots and wellness applications</a> <span class="corpus-dom">apa.org</span></li>
+            <li><a href="https://www.ama-assn.org/practice-management/physician-health/new-apa-ceo-uses-artificial-intelligence-mental-health-future" target="_blank" rel="noopener">New APA CEO on uses of artificial intelligence in mental health</a> <span class="corpus-dom">ama-assn.org</span></li>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12434366/" target="_blank" rel="noopener">Charting the evolution of AI mental health chatbots — systematic review</a> <span class="corpus-dom">nih.gov</span></li>
+            <li><a href="https://psychiatryonline.org/doi/10.1176/appi.pn.2025.10.10.5" target="_blank" rel="noopener">Special Report: AI-Induced Psychosis — Psychiatric News</a> <span class="corpus-dom">psychiatryonline.org</span></li>
+            <li><a href="https://en.wikipedia.org/wiki/Cyberpsychology" target="_blank" rel="noopener">Cyberpsychology</a> <span class="corpus-dom">wikipedia.org</span></li>
+            <li><a href="https://en.wikipedia.org/wiki/Chatbot_psychosis" target="_blank" rel="noopener">Chatbot psychosis</a> <span class="corpus-dom">wikipedia.org</span></li>
+            <li><a href="https://www.oreateai.com/blog/what-is-cyberpsychosis/9c847bcf75939e0b3b1b6e406437e522" target="_blank" rel="noopener">What Is Cyberpsychosis — Oreate AI Blog</a> <span class="corpus-dom">oreateai.com</span></li>
+            <li><a href="https://cyberpunk.fandom.com/wiki/Cyberpsychosis" target="_blank" rel="noopener">Cyberpsychosis — Cyberpunk Wiki</a> <span class="corpus-dom">fandom.com</span></li>
+            <li><a href="https://notbystrengthbyguile.ca/2025/08/09/ai-psychosis/" target="_blank" rel="noopener">Cyberpsychosis... or AI Psychosis?</a> <span class="corpus-dom">notbystrengthbyguile.ca</span></li>
+            <li><a href="https://faspsych.com/blog/what-is-ai-psychosis/" target="_blank" rel="noopener">What is AI Psychosis? Symptoms, Risks &amp; Prevention</a> <span class="corpus-dom">faspsych.com</span></li>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12805049/" target="_blank" rel="noopener">Do generative AI chatbots increase psychosis risk?</a> <span class="corpus-dom">nih.gov</span></li>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12863933/" target="_blank" rel="noopener">"You're Not Crazy": A Case of New-onset AI-associated Psychosis</a> <span class="corpus-dom">nih.gov</span></li>
+            <li><a href="https://insights.wchsb.com/2026/02/13/ai-chatbots-and-mental-health-examining-reports-of-psychotic-episodes/" target="_blank" rel="noopener">AI Chatbots: Emerging Risks of Psychosis and Delusional Thinking</a> <span class="corpus-dom">wchsb.com</span></li>
+            <li><a href="https://www.rand.org/pubs/research_reports/RRA4435-1.html" target="_blank" rel="noopener">Manipulating Minds: Security Implications of AI-Induced Psychosis — RAND</a> <span class="corpus-dom">rand.org</span></li>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12712562/" target="_blank" rel="noopener">Delusional Experiences Emerging From AI Chatbot Interactions</a> <span class="corpus-dom">nih.gov</span></li>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12550315/" target="_blank" rel="noopener">Commentary: AI psychosis is not a new threat</a> <span class="corpus-dom">nih.gov</span></li>
+            <li><a href="https://www.michiganmedicine.org/health-lab/ai-and-psychosis-what-know-what-do" target="_blank" rel="noopener">AI and psychosis: What to know, what to do — Michigan Medicine</a> <span class="corpus-dom">michiganmedicine.org</span></li>
+            <li><a href="https://innovationscns.com/youre-not-crazy-a-case-of-new-onset-ai-associated-psychosis/" target="_blank" rel="noopener">"You're Not Crazy" — Innovations in Clinical Neuroscience</a> <span class="corpus-dom">innovationscns.com</span></li>
+            <li><a href="https://dallasexpress.com/national/are-chatbots-quietly-driving-people-into-psychosis/" target="_blank" rel="noopener">AI Psychosis: Emerging Mental Health Crisis From Chatbot Overuse</a> <span class="corpus-dom">dallasexpress.com</span></li>
+            <li><a href="https://www.psychiatry.org/psychiatrists/education/podcasts/medical-mind/2025/psych-news-special-report-ai-induced-psychosis-wit" target="_blank" rel="noopener">Psych News Special Report: AI-Induced Psychosis with Dr. Adrian Preda</a> <span class="corpus-dom">psychiatry.org</span></li>
+            <li><a href="https://www.nature.com/articles/s41380-025-03072-3" target="_blank" rel="noopener">Practical AI application in psychiatry — Molecular Psychiatry</a> <span class="corpus-dom">nature.com</span></li>
+            <li><a href="https://www.healthline.com/health/ai-psychosis" target="_blank" rel="noopener">What Is AI Psychosis and Can You Prevent It?</a> <span class="corpus-dom">healthline.com</span></li>
+            <li><a href="https://pubmed.ncbi.nlm.nih.gov/41201806/" target="_blank" rel="noopener">Use of Generative AI for Mental Health Advice Among US Adolescents</a> <span class="corpus-dom">nih.gov</span></li>
+            <li><a href="https://www.fda.gov/media/189391/download" target="_blank" rel="noopener">Enabled Digital Mental Health Medical Devices — FDA (PDF)</a> <span class="corpus-dom">fda.gov</span></li>
+            <li><a href="https://www.hoganlovells.com/en/publications/fdas-digital-health-advisory-committee-weighs-guardrails-for-generative-ai-in-mental-health-devices" target="_blank" rel="noopener">FDA's Digital Health Advisory Committee weighs guardrails for generative AI</a> <span class="corpus-dom">hoganlovells.com</span></li>
+            <li><a href="https://www.psychiatrictimes.com/view/psychiatry-and-artificial-intelligence-in-2025" target="_blank" rel="noopener">Psychiatry and Artificial Intelligence in 2025</a> <span class="corpus-dom">psychiatrictimes.com</span></li>
+            <li><a href="https://pubmed.ncbi.nlm.nih.gov/16910385/" target="_blank" rel="noopener">"Internet delusions": the impact of technological developments on psychiatric symptoms</a> <span class="corpus-dom">nih.gov</span></li>
+            <li><a href="https://www.psychologytoday.com/us/blog/urban-survival/202507/the-emerging-problem-of-ai-psychosis" target="_blank" rel="noopener">The Emerging Problem of "AI Psychosis" — Psychology Today</a> <span class="corpus-dom">psychologytoday.com</span></li>
+            <li><a href="https://pubmed.ncbi.nlm.nih.gov/41178082/" target="_blank" rel="noopener">'The algorithm is hacked': analysis of technology delusions</a> <span class="corpus-dom">nih.gov</span></li>
+            <li><a href="https://mental.jmir.org/2025/1/e85799" target="_blank" rel="noopener">Delusional Experiences Emerging From AI Chatbot Interactions — JMIR Mental Health</a> <span class="corpus-dom">jmir.org</span></li>
+            <li><a href="https://www.psychologs.com/mind-in-the-machine-exploring-mechanisms-of-ai-induced-psychosis/" target="_blank" rel="noopener">Mind in the Machine: Exploring Mechanisms of AI-Induced Psychosis</a> <span class="corpus-dom">psychologs.com</span></li>
+            <li><a href="https://www.cambridge.org/core/journals/the-british-journal-of-psychiatry/article/chatbot-psychosis-moving-beyond-recognition-to-mechanistic-understanding-and-harm-reduction/C757BAAD80BAEE1C6BAAD73805EDDFD1" target="_blank" rel="noopener">Chatbot psychosis: moving beyond recognition — British Journal of Psychiatry</a> <span class="corpus-dom">cambridge.org</span></li>
+            <li><a href="https://www.jmir.org/2025/1/e78238" target="_blank" rel="noopener">Generative AI Mental Health Chatbots as Therapeutic Tools — Systematic Review</a> <span class="corpus-dom">jmir.org</span></li>
+            <li><a href="https://www.psychiatrictimes.com/view/preliminary-report-on-dangers-of-ai-chatbots" target="_blank" rel="noopener">Preliminary Report on Dangers of AI Chatbots</a> <span class="corpus-dom">psychiatrictimes.com</span></li>
+            <li><a href="https://www.cambridge.org/core/journals/the-british-journal-of-psychiatry/article/warning-ai-chatbots-will-soon-dominate-psychotherapy/DBE883D1E089006DFD07D0E09A2D1FB3" target="_blank" rel="noopener">Warning: AI chatbots will soon dominate psychotherapy</a> <span class="corpus-dom">cambridge.org</span></li>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12440320/" target="_blank" rel="noopener">Practitioner Perspectives on the Uses of Generative AI Chatbots in Mental Health Care</a> <span class="corpus-dom">nih.gov</span></li>
+            <li><a href="https://arxiv.org/abs/2507.19218" target="_blank" rel="noopener">Technological folie à deux — arXiv</a> <span class="corpus-dom">arxiv.org</span></li>
+            <li><a href="https://www.nature.com/articles/s44220-026-00595-8" target="_blank" rel="noopener">Technological folie à deux — Nature Mental Health</a> <span class="corpus-dom">nature.com</span></li>
+            <li><a href="https://www.psychologytoday.com/us/blog/psych-unseen/202603/how-ai-chatbot-use-can-cause-digital-folie-a-deux" target="_blank" rel="noopener">How AI Chatbot Use Can Cause "Digital Folie à Deux"</a> <span class="corpus-dom">psychologytoday.com</span></li>
+            <li><a href="https://www.psychologytoday.com/us/blog/urban-survival/202509/hidden-mental-health-dangers-of-artificial-intelligence-chatbots" target="_blank" rel="noopener">Hidden Mental Health Dangers of Artificial Intelligence Chatbots</a> <span class="corpus-dom">psychologytoday.com</span></li>
+            <li><a href="https://annals.edu.sg/conversational-ai-and-psychosis/" target="_blank" rel="noopener">Conversational AI and psychosis: A technological folie à deux</a> <span class="corpus-dom">annals.edu.sg</span></li>
+            <li><a href="https://futurism.com/artificial-intelligence/paper-ai-chatbots-chatgpt-claude-sycophantic" target="_blank" rel="noopener">Paper Finds Leading AI Chatbots Remain Incredibly Sycophantic</a> <span class="corpus-dom">futurism.com</span></li>
+            <li><a href="https://futurism.com/artificial-intelligence/study-chats-delusional-users-ai" target="_blank" rel="noopener">Huge Study of Chats Between Delusional Users and AI</a> <span class="corpus-dom">futurism.com</span></li>
+            <li><a href="https://www.icanotes.com/2026/02/27/ai-chatbot-psychosis-digital-delusions/" target="_blank" rel="noopener">AI Sycophancy &amp; ChatGPT Psychosis: A Clinical Guide</a> <span class="corpus-dom">icanotes.com</span></li>
+            <li><a href="https://www.psychologytoday.com/ca/blog/the-algorithmic-mind/202508/how-ai-chatbots-may-blur-reality" target="_blank" rel="noopener">How AI Chatbots May Blur Reality — Psychology Today Canada</a> <span class="corpus-dom">psychologytoday.com</span></li>
+            <li><a href="https://faspsych.com/blog/parasocial-relationships-with-ai-dangers-mental-health-risks-and-professional-solutions/" target="_blank" rel="noopener">Parasocial Relationships with AI: Dangers, Risks, and Solutions</a> <span class="corpus-dom">faspsych.com</span></li>
+            <li><a href="https://arxiv.org/html/2508.15748v5" target="_blank" rel="noopener">AI Chaperones Are (Really) All You Need to Prevent Parasocial Relationships</a> <span class="corpus-dom">arxiv.org</span></li>
+            <li><a href="https://www.unesco.org/en/articles/ghost-chatbot-perils-parasocial-attachment" target="_blank" rel="noopener">Ghost in the Chatbot: The perils of parasocial attachment — UNESCO</a> <span class="corpus-dom">unesco.org</span></li>
+            <li><a href="https://www.mind-war.com/p/folie-a-chatbot-ai-psychosis-is-worse" target="_blank" rel="noopener">Folie à Chatbot: "AI Psychosis" Is Worse Than You Think</a> <span class="corpus-dom">mind-war.com</span></li>
+            <li><a href="https://www.mdpi.com/2078-2489/16/12/1025" target="_blank" rel="noopener">Unpacking AI Chatbot Dependency: A Dual-Path Model</a> <span class="corpus-dom">mdpi.com</span></li>
+            <li><a href="https://www.mentalhealthjournal.org/articles/minds-in-crisis-how-the-ai-revolution-is-impacting-mental-health.html" target="_blank" rel="noopener">Minds in Crisis: How the AI Revolution is Impacting Mental Health</a> <span class="corpus-dom">mentalhealthjournal.org</span></li>
+            <li><a href="https://arxiv.org/html/2503.17473v1" target="_blank" rel="noopener">How AI and Human Behaviors Shape Psychosocial Effects of Chatbot Use — RCT</a> <span class="corpus-dom">arxiv.org</span></li>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10944174/" target="_blank" rel="noopener">AI Dependence and Mental Health: A Cross-Lagged Panel Model</a> <span class="corpus-dom">nih.gov</span></li>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11020077/" target="_blank" rel="noopener">From tools to threats: impact of AI chatbots on cognitive health</a> <span class="corpus-dom">nih.gov</span></li>
+            <li><a href="https://www.nature.com/articles/s42256-025-01093-9" target="_blank" rel="noopener">Emotional risks of AI companions demand attention — Nature Machine Intelligence</a> <span class="corpus-dom">nature.com</span></li>
+            <li><a href="https://link.springer.com/article/10.1007/s00406-025-02088-8" target="_blank" rel="noopener">Anthropomorphic technology in everyday life — European Archives of Psychiatry</a> <span class="corpus-dom">springer.com</span></li>
+            <li><a href="https://www.sciencedirect.com/science/article/pii/S0040162522003109" target="_blank" rel="noopener">AI anthropomorphism and its effect on users' self-congruence</a> <span class="corpus-dom">sciencedirect.com</span></li>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12904903/" target="_blank" rel="noopener">Anthropomorphic technology in everyday life — PMC</a> <span class="corpus-dom">nih.gov</span></li>
+            <li><a href="https://link.springer.com/article/10.1007/s13347-026-01034-3" target="_blank" rel="noopener">Hallucinating with AI: Distributed Delusions — Philosophy &amp; Technology</a> <span class="corpus-dom">springer.com</span></li>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10686326/" target="_blank" rel="noopener">Will Generative AI Chatbots Generate Delusions? (Østergaard 2023)</a> <span class="corpus-dom">nih.gov</span></li>
+            <li><a href="https://arxiv.org/abs/2508.19588" target="_blank" rel="noopener">Hallucinating with AI: AI Psychosis as Distributed Delusions — arXiv</a> <span class="corpus-dom">arxiv.org</span></li>
+            <li><a href="https://www.nature.com/articles/d41586-025-03020-9" target="_blank" rel="noopener">Can AI chatbots trigger psychosis? What the science says — Nature</a> <span class="corpus-dom">nature.com</span></li>
+            <li><a href="https://pubmed.ncbi.nlm.nih.gov/40968286/" target="_blank" rel="noopener">Can AI chatbots trigger psychosis? — PubMed</a> <span class="corpus-dom">nih.gov</span></li>
+            <li><a href="https://www.psychiatrictimes.com/view/preliminary-report-on-chatbot-iatrogenic-dangers" target="_blank" rel="noopener">Preliminary Report on Chatbot Iatrogenic Dangers</a> <span class="corpus-dom">psychiatrictimes.com</span></li>
+            <li><a href="https://techcrunch.com/2026/03/15/lawyer-behind-ai-psychosis-cases-warns-of-mass-casualty-risks/" target="_blank" rel="noopener">Lawyer behind AI psychosis cases warns of mass casualty risks</a> <span class="corpus-dom">techcrunch.com</span></li>
+            <li><a href="https://www.psychiatrictimes.com/view/the-new-risk-factor-ai-influence-and-psychiatric-vulnerability" target="_blank" rel="noopener">The New Risk Factor: AI Influence and Psychiatric Vulnerability</a> <span class="corpus-dom">psychiatrictimes.com</span></li>
+            <li><a href="https://en.wikipedia.org/wiki/Deaths_linked_to_chatbots" target="_blank" rel="noopener">Deaths linked to chatbots</a> <span class="corpus-dom">wikipedia.org</span></li>
+            <li><a href="https://www.torhoermanlaw.com/ai-lawsuit/character-ai-lawsuit/" target="_blank" rel="noopener">Character AI Lawsuit For Suicide And Self-Harm</a> <span class="corpus-dom">torhoermanlaw.com</span></li>
+            <li><a href="https://www.nbcwashington.com/investigations/moms-lawsuit-blames-14-year-old-sons-suicide-on-ai-relationship/3967878/" target="_blank" rel="noopener">Mom's lawsuit blames 14-year-old son's suicide on AI relationship</a> <span class="corpus-dom">nbcwashington.com</span></li>
+            <li><a href="https://www.nbcnews.com/tech/characterai-lawsuit-florida-teen-death-rcna176791" target="_blank" rel="noopener">Lawsuit claims Character.AI is responsible for teen's suicide</a> <span class="corpus-dom">nbcnews.com</span></li>
+            <li><a href="https://www.jurist.org/news/2026/01/google-and-character-ai-agree-to-settle-lawsuit-linked-to-teen-suicide/" target="_blank" rel="noopener">Google and Character.AI agree to settle lawsuit linked to teen suicide</a> <span class="corpus-dom">jurist.org</span></li>
+            <li><a href="https://www.euronews.com/next/2023/10/06/man-encouraged-by-an-ai-chatbot-to-assassinate-queen-elizabeth-ii-receives-9-year-prison-s" target="_blank" rel="noopener">Man encouraged by AI chatbot to kill Queen Elizabeth II — 9 years</a> <span class="corpus-dom">euronews.com</span></li>
+            <li><a href="https://www.cbsnews.com/news/jonathan-gavalas-google-ai-chatbot-gemini-suicide-lawsuit/" target="_blank" rel="noopener">Google faces first lawsuit alleging its AI chatbot encouraged suicide</a> <span class="corpus-dom">cbsnews.com</span></li>
+            <li><a href="https://www.cnbc.com/2026/03/04/google-gemini-ai-told-user-stage-mass-casualty-attack-suit-claims.html" target="_blank" rel="noopener">Google's AI chatbot allegedly told user to stage 'mass casualty attack'</a> <span class="corpus-dom">cnbc.com</span></li>
+            <li><a href="https://techcrunch.com/2026/03/04/father-sues-google-claiming-gemini-chatbot-drove-son-into-fatal-delusion/" target="_blank" rel="noopener">Father sues Google, claiming Gemini chatbot drove son into fatal delusion</a> <span class="corpus-dom">techcrunch.com</span></li>
+            <li><a href="https://time.com/7382406/gemini-suicide-lawsuit-death/" target="_blank" rel="noopener">A New Lawsuit Blames Google Gemini for Man's Suicide</a> <span class="corpus-dom">time.com</span></li>
+            <li><a href="https://www.pbs.org/newshour/show/what-to-know-about-ai-psychosis-and-the-effect-of-ai-chatbots-on-mental-health" target="_blank" rel="noopener">What to know about 'AI psychosis' — PBS NewsHour</a> <span class="corpus-dom">pbs.org</span></li>
+            <li><a href="https://futurism.com/commitment-jail-chatgpt-psychosis" target="_blank" rel="noopener">People Are Being Involuntarily Committed, Jailed After "ChatGPT Psychosis"</a> <span class="corpus-dom">futurism.com</span></li>
+            <li><a href="https://www.rollingstone.com/culture/culture-features/chatgpt-obsession-mental-breaktown-alex-taylor-suicide-1235368941/" target="_blank" rel="noopener">A ChatGPT Obsession, a Mental Breakdown: Alex Taylor's Suicide by Cop</a> <span class="corpus-dom">rollingstone.com</span></li>
+            <li><a href="https://futurism.com/man-killed-police-chatgpt" target="_blank" rel="noopener">Man Killed by Police After Spiraling Into ChatGPT-Driven Psychosis</a> <span class="corpus-dom">futurism.com</span></li>
+            <li><a href="https://futurism.com/chatgpt-encouraged-murder-sam-altman" target="_blank" rel="noopener">ChatGPT Encouraged Man as He Swore to Kill Sam Altman</a> <span class="corpus-dom">futurism.com</span></li>
+            <li><a href="https://www.rand.org/content/dam/rand/pubs/research_reports/RRA4400/RRA4435-1/RAND_RRA4435-1.pdf" target="_blank" rel="noopener">Security Implications of AI-Induced Psychosis — RAND (PDF)</a> <span class="corpus-dom">rand.org</span></li>
+            <li><a href="https://en.wikipedia.org/wiki/Murder_of_Suzanne_Adams" target="_blank" rel="noopener">Murder of Suzanne Adams</a> <span class="corpus-dom">wikipedia.org</span></li>
+            <li><a href="https://www.aljazeera.com/economy/2025/12/11/openai-sued-for-allegedly-enabling-murder-suicide" target="_blank" rel="noopener">OpenAI sued for allegedly enabling murder-suicide</a> <span class="corpus-dom">aljazeera.com</span></li>
+            <li><a href="https://www.washingtonpost.com/technology/2025/12/11/chatgpt-murder-suicide-soelberg-lawsuit/" target="_blank" rel="noopener">A former tech executive killed his mother. Her family says ChatGPT made her a target</a> <span class="corpus-dom">washingtonpost.com</span></li>
+            <li><a href="https://www.euronews.com/next/2023/03/31/man-ends-his-life-after-an-ai-chatbot-encouraged-him-to-sacrifice-himself-to-stop-climate-" target="_blank" rel="noopener">Man ends his life after an AI chatbot encouraged him — climate change</a> <span class="corpus-dom">euronews.com</span></li>
+            <li><a href="https://www.brusselstimes.com/430098/belgian-man-commits-suicide-following-exchanges-with-chatgpt" target="_blank" rel="noopener">Belgian man dies by suicide following exchanges with chatbot</a> <span class="corpus-dom">brusselstimes.com</span></li>
+            <li><a href="https://www.techpolicy.press/transcript-us-senate-hearing-on-examining-the-harm-of-ai-chatbots/" target="_blank" rel="noopener">Transcript: US Senate Hearing On 'Examining the Harm of AI Chatbots'</a> <span class="corpus-dom">techpolicy.press</span></li>
+            <li><a href="https://www.judiciary.senate.gov/committee-activity/hearings/examining-the-harm-of-ai-chatbots" target="_blank" rel="noopener">Examining the Harm of AI Chatbots — US Senate Judiciary Committee</a> <span class="corpus-dom">senate.gov</span></li>
+            <li><a href="https://www.npr.org/sections/shots-health-news/2025/09/19/nx-s1-5545749/ai-chatbots-safety-openai-meta-characterai-teens-suicide" target="_blank" rel="noopener">Their teen sons died by suicide. Now, they want safeguards on AI</a> <span class="corpus-dom">npr.org</span></li>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11301767/" target="_blank" rel="noopener">The Opportunities and Risks of Large Language Models in Mental Health</a> <span class="corpus-dom">nih.gov</span></li>
+            <li><a href="https://www.thelancet.com/journals/lanpsy/article/PIIS2215-0366(25)00396-7/abstract" target="_blank" rel="noopener">AI-associated delusions and LLMs — The Lancet Psychiatry</a> <span class="corpus-dom">thelancet.com</span></li>
+            <li><a href="https://www.jmir.org/2025/1/e87367" target="_blank" rel="noopener">Shoggoths, Sycophancy, Psychosis: Rethinking LLM Use and Safety</a> <span class="corpus-dom">jmir.org</span></li>
+            <li><a href="https://www.ucsf.edu/news/2026/01/431366/psychiatrists-hope-chat-logs-can-reveal-secrets-ai-psychosis" target="_blank" rel="noopener">Psychiatrists Hope Chat Logs Can Reveal the Secrets of AI Psychosis — UCSF</a> <span class="corpus-dom">ucsf.edu</span></li>
+            <li><a href="https://academic.oup.com/schizophreniabulletin/article/49/6/1418/7251361" target="_blank" rel="noopener">Will Generative AI Chatbots Generate Delusions? — Schizophrenia Bulletin</a> <span class="corpus-dom">oup.com</span></li>
+            <li><a href="https://www.psypost.org/chatgpt-psychosis-this-scientist-predicted-ai-induced-delusions-two-years-later-it-appears-he-was-right/" target="_blank" rel="noopener">ChatGPT psychosis: this scientist predicted AI-induced delusions</a> <span class="corpus-dom">psypost.org</span></li>
+            <li><a href="https://kclpure.kcl.ac.uk/portal/en/publications/delusions-by-design-how-everyday-ais-might-be-fuelling-psychosis-/" target="_blank" rel="noopener">Delusions by design? — King's College London</a> <span class="corpus-dom">kcl.ac.uk</span></li>
+            <li><a href="https://arxiv.org/abs/2509.10970" target="_blank" rel="noopener">The Psychogenic Machine: psychosis-bench benchmark — arXiv</a> <span class="corpus-dom">arxiv.org</span></li>
+            <li><a href="https://www.cambridge.org/core/journals/acta-neuropsychiatrica/article/emotion-contagion-through-interaction-with-generative-artificial-intelligence-chatbots-may-contribute-to-development-and-maintenance-of-mania/32211533830BC754BCD19FC784815E1E" target="_blank" rel="noopener">Emotion contagion through AI chatbots may contribute to mania</a> <span class="corpus-dom">cambridge.org</span></li>
+            <li><a href="https://onlinelibrary.wiley.com/doi/10.1111/acps.70022" target="_blank" rel="noopener">Generative AI Chatbots and Delusions: From Guesswork to Emerging Cases</a> <span class="corpus-dom">wiley.com</span></li>
+            <li><a href="https://www.cambridge.org/core/journals/the-british-journal-of-psychiatry/article/algorithm-is-hacked-analysis-of-technology-delusions-in-a-modernday-cohort/730116A23707DF4B1786337ACA2F9E5E" target="_blank" rel="noopener">'The algorithm is hacked': technology delusions in a modern-day cohort</a> <span class="corpus-dom">cambridge.org</span></li>
+            <li><a href="https://www.psychiatrist.com/pcc/artificial-intelligence-psychosis-substance-induced-psychosis/" target="_blank" rel="noopener">Machine Madness: AI Psychosis Co-Occurring With Substance-Induced Psychosis</a> <span class="corpus-dom">psychiatrist.com</span></li>
+            <li><a href="https://arxiv.org/html/2602.19141" target="_blank" rel="noopener">Sycophantic Chatbots Cause Delusional Spiraling, Even in Ideal Bayesians</a> <span class="corpus-dom">arxiv.org</span></li>
+            <li><a href="https://spirals.stanford.edu/assets/pdf/moore_characterizing_2026.pdf" target="_blank" rel="noopener">Characterizing Delusional Spirals through Human-LLM Chat Logs — Stanford (PDF)</a> <span class="corpus-dom">stanford.edu</span></li>
+            <li><a href="https://futurism.com/psychiatrist-warns-ai-psychosis" target="_blank" rel="noopener">Research Psychiatrist Warns He's Seeing a Wave of AI Psychosis</a> <span class="corpus-dom">futurism.com</span></li>
+            <li><a href="https://www.sciencedirect.com/science/article/pii/S2214782925000831" target="_blank" rel="noopener">Commentary: AI psychosis is not a new threat — ScienceDirect</a> <span class="corpus-dom">sciencedirect.com</span></li>
+            <li><a href="https://onlinelibrary.wiley.com/doi/10.1111/acps.70057" target="_blank" rel="noopener">AI Chatbots and Mental Health: Have We Learned Nothing From Social Media?</a> <span class="corpus-dom">wiley.com</span></li>
+            <li><a href="https://bjgplife.com/ai-psychosis/" target="_blank" rel="noopener">"AI psychosis" — BJGP Life</a> <span class="corpus-dom">bjgplife.com</span></li>
+          </ol>
+        </details>
+      </div>
 
     </div>
   </div>
