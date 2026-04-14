@@ -71,6 +71,62 @@ strong { font-weight: 700; }
 }
 .site-header__section { color: var(--accent); font-weight: 600; }
 
+/* -------- DISCLOSURE BANNER -------- */
+.disclosure {
+  background: #fffbf0;
+  border-bottom: 1px solid #e8dfbc;
+  border-top: 2px solid #b38600;
+}
+.disclosure__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 22px 32px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 24px;
+  align-items: center;
+}
+.disclosure__badge {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #b38600;
+  padding: 6px 12px;
+  border: 1px solid #b38600;
+  white-space: nowrap;
+}
+.disclosure__text {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.55;
+  color: #4a3a00;
+  margin: 0;
+  font-weight: 400;
+  max-width: 78ch;
+}
+.disclosure__text strong { color: #2a2100; font-weight: 700; }
+.disclosure__link {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #b30000;
+  text-decoration: none;
+  padding: 10px 16px;
+  border: 1px solid #b30000;
+  white-space: nowrap;
+  transition: background .2s, color .2s;
+}
+.disclosure__link:hover { background: #b30000; color: #fffbf0; }
+@media (max-width: 900px) {
+  .disclosure__inner { grid-template-columns: 1fr; gap: 14px; padding: 20px 24px; }
+  .disclosure__badge { justify-self: start; }
+  .disclosure__link { justify-self: start; }
+}
+
 /* -------- HERO -------- */
 .hero {
   position: relative;
@@ -1231,6 +1287,21 @@ html:not(.js) .hero__hl::after { transform: scaleX(1) !important; animation: non
   </div>
 </header>
 
+<aside class="disclosure" role="note" aria-label="Disclosure éditoriale">
+  <div class="disclosure__inner">
+    <div class="disclosure__badge">Disclosure éditoriale</div>
+    <p class="disclosure__text">
+      Ce document a été produit avec l'assistance d'une intelligence artificielle
+      (<strong>Claude Opus 4.6</strong>, en modes Research et Web Search), puis soumis à une
+      vérification factuelle contre les sources primaires. L'IA a servi d'outil de
+      <strong>documentation et de synthèse</strong> — pas de source autonome ni d'autorité
+      médicale. Une erreur d'attribution produite par le modèle a été détectée puis corrigée
+      au cours de la révision ; elle est documentée en toute transparence.
+    </p>
+    <a class="disclosure__link" href="#ai-credit">Toute la méthode documentée <span aria-hidden="true">↓</span></a>
+  </div>
+</aside>
+
 <main>
 
 <!-- HERO -->
@@ -1911,6 +1982,32 @@ Je veux des conclusions de papier de recherche.</pre></div>
       <div class="ai-credit__label">Relecture humaine</div>
       <div class="ai-credit__value ai-credit__value--placeholder">[À compléter — nom du ou des relecteurs, date de vérification des sources]</div>
 
+      <div class="ai-credit__label">Fonctionnement du modèle</div>
+      <div class="ai-credit__value">
+        <p style="margin: 0 0 16px;"><strong>Claude Opus 4.6</strong> est le modèle phare d'Anthropic
+        pour les tâches de raisonnement complexe et de synthèse longue. Il est exploité ici dans deux
+        modes applicatifs complémentaires proposés par Claude.ai :</p>
+        <p style="margin: 0 0 14px;"><strong>Research mode.</strong> Le modèle planifie une stratégie
+        de recherche en plusieurs étapes, émet de multiples requêtes web en parallèle puis en cascade,
+        lit et évalue les sources retournées, croise les informations, et rédige un rapport structuré
+        avec citations explicites. Le processus est agentique : le modèle agit en boucle
+        <em>plan&nbsp;→ chercher&nbsp;→ lire&nbsp;→ croiser&nbsp;→ écrire&nbsp;→ vérifier</em>, et peut
+        itérer pendant plusieurs minutes avant de produire sa sortie.</p>
+        <p style="margin: 0 0 14px;"><strong>Web Search mode.</strong> Donne au modèle un accès en
+        temps réel au web, au-delà de sa date de coupure d'entraînement. Les résultats sont injectés
+        dans le contexte et peuvent être cités. Permet notamment de capter la littérature très récente
+        (preprints arXiv, articles publiés la semaine même, procédures judiciaires en cours).</p>
+        <p style="margin: 0;"><strong>Limitations assumées.</strong> Les LLM — y compris Claude — peuvent
+        <em>halluciner</em> : inventer des noms, mal attribuer des citations, fabriquer des URLs
+        plausibles. Cette enquête en a elle-même fourni un exemple instructif : une première version
+        attribuait à tort le prénom « <em>Joseph Ceccanti</em> » à la patiente anonyme de 26 ans décrite
+        dans le rapport peer-reviewed Pierre et al. (UCSF, 2025). L'erreur a été détectée lors de la
+        confrontation avec la source primaire, et corrigée. Le mode Research réduit ce risque mais ne
+        l'élimine pas : <strong>la vérification humaine contre sources primaires reste indispensable</strong>.
+        Ce que fait bien le modèle : organiser, synthétiser, retrouver. Ce qu'il ne remplace pas :
+        juger, relire, valider.</p>
+      </div>
+
       <div class="ai-credit__label">Corpus initial</div>
       <div class="ai-credit__value">
         <strong>113 sources</strong> consultées par le modèle lors de la recherche web.
@@ -2036,6 +2133,26 @@ Je veux des conclusions de papier de recherche.</pre></div>
             <li><a href="https://bjgplife.com/ai-psychosis/" target="_blank" rel="noopener">"AI psychosis" — BJGP Life</a> <span class="corpus-dom">bjgplife.com</span></li>
           </ol>
         </details>
+      </div>
+
+      <div class="ai-credit__label">Protocole de vérification</div>
+      <div class="ai-credit__value">
+        <ol style="margin: 0; padding-left: 20px;">
+          <li style="margin-bottom: 8px;">Chaque affirmation chiffrée a été recontrôlée contre la source primaire (article peer-reviewed ou rapport institutionnel), pas contre un commentaire secondaire.</li>
+          <li style="margin-bottom: 8px;">Les noms des personnes citées (victimes, patients, chercheurs) ont été vérifiés ligne à ligne ; les cas anonymisés dans la littérature (ex. patiente UCSF) le restent ici.</li>
+          <li style="margin-bottom: 8px;">Les citations textuelles entre guillemets ont été restituées dans leur langue d'origine (anglais), avec attribution explicite (chatbot, auteur, juridiction).</li>
+          <li style="margin-bottom: 8px;">Les dates réglementaires (SB 243, AI LEAD Act, etc.) ont été vérifiées contre le texte législatif officiel.</li>
+          <li style="margin-bottom: 0;">Toute affirmation fragile (données provisoires, non-peer-reviewed, rapport journalistique) est explicitement marquée comme telle.</li>
+        </ol>
+      </div>
+
+      <div class="ai-credit__label">Usage acceptable</div>
+      <div class="ai-credit__value" style="color: #c8c4ba;">
+        Ce site est un document journalistique de synthèse. <strong>Il ne constitue ni un avis
+        médical, ni un diagnostic, ni une recommandation thérapeutique.</strong> Les personnes
+        concernées par des pensées suicidaires ou des symptômes psychotiques doivent s'adresser
+        à un professionnel de santé ou à un service d'urgence (France : <strong>3114</strong> · Canada :
+        <strong>988</strong> · International : <a href="https://findahelpline.com" target="_blank" rel="noopener" style="color: #d89a9a;">findahelpline.com</a>).
       </div>
 
     </div>
