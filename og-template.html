@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>OG Image</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    font-family: "Inter", sans-serif;
+    background: #f7f5f0;
+    color: #121212;
+    padding: 64px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6a6a6a;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #d8d3c7;
+  }
+  .header__section { color: #b30000; }
+  .kicker {
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #b30000;
+    margin-top: 36px;
+    margin-bottom: 24px;
+  }
+  .title {
+    font-family: "Playfair Display", serif;
+    font-weight: 900;
+    font-size: 88px;
+    line-height: 0.96;
+    letter-spacing: -0.025em;
+    max-width: 16ch;
+  }
+  .title em {
+    font-weight: 400;
+    font-style: italic;
+    color: #444;
+  }
+  .title .hl {
+    color: #b30000;
+    position: relative;
+    white-space: nowrap;
+  }
+  .title .hl::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 0.08em;
+    height: 16px;
+    background: rgba(179, 0, 0, 0.14);
+    z-index: -1;
+  }
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 20px;
+    border-top: 1px solid #d8d3c7;
+  }
+  .footer__byline {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.4;
+  }
+  .footer__byline strong { color: #121212; font-weight: 700; }
+  .footer__stats {
+    display: flex;
+    gap: 28px;
+    font-family: "Playfair Display", serif;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 1;
+    color: #121212;
+    letter-spacing: -0.02em;
+  }
+  .footer__stats .stat span {
+    display: block;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6a6a6a;
+    margin-top: 6px;
+  }
+  .footer__stats .stat--accent { color: #b30000; }
+  .pulse {
+    position: absolute;
+    top: 100px;
+    right: -120px;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    border: 1px solid rgba(179, 0, 0, 0.25);
+    background: radial-gradient(circle at center, rgba(179,0,0,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .pulse::before, .pulse::after {
+    content: "";
+    position: absolute;
+    inset: 40px;
+    border: 1px solid rgba(179, 0, 0, 0.18);
+    border-radius: 50%;
+  }
+  .pulse::after { inset: 80px; }
+</style>
+</head>
+<body>
+  <div class="pulse"></div>
+
+  <header class="header">
+    <span>Rapport documentaire · Avril 2026</span>
+    <span class="header__section">Enquête · Santé mentale</span>
+  </header>
+
+  <main>
+    <div class="kicker">Une enquête documentaire</div>
+    <h1 class="title">
+      Psychose IA :<br>
+      <em>une réalité clinique,</em><br>
+      un diagnostic <span class="hl">encore absent</span>.
+    </h1>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__byline">
+      Par <strong>Pierre Vannier</strong> · Président, <strong>Flint</strong><br>
+      <span style="font-size: 13px; color: #6a6a6a;">Avec l'assistance documentaire de Claude Opus 4.6</span>
+    </div>
+    <div class="footer__stats">
+      <div class="stat">43<span>cas rapportés</span></div>
+      <div class="stat stat--accent">15+<span>décès liés</span></div>
+      <div class="stat">39<span>sources citées</span></div>
+    </div>
+  </footer>
+</body>
+</html>
