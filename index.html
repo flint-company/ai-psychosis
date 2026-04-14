@@ -149,6 +149,22 @@ strong { font-weight: 700; }
   animation: fadeUp 1s ease .75s forwards;
 }
 .hero__meta .dot { color: var(--rule); }
+.hero__caveat {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-mute);
+  max-width: 62ch;
+  margin: 0 0 24px;
+  padding: 14px 18px;
+  border-left: 2px solid var(--rule);
+  background: rgba(0,0,0,0.02);
+  font-weight: 400;
+  opacity: 0;
+  animation: fadeUp 1s ease .7s forwards;
+}
+.hero__caveat em { color: var(--ink-soft); }
+html:not(.js) .hero__caveat { opacity: 1 !important; animation: none !important; }
 .hero__scroll {
   position: absolute;
   bottom: 50px;
@@ -590,6 +606,65 @@ html.js .timeline.is-visible .tl-event { opacity: 1; transform: translateX(0); }
 }
 .m-eye { fill: var(--accent); animation: nodePulse 2s ease infinite; }
 
+/* -------- DELUSION THEMES -------- */
+.themes {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid var(--rule);
+}
+.themes__intro {
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 62ch;
+  margin: 0 0 32px;
+  font-weight: 400;
+}
+.themes__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.theme {
+  background: var(--paper);
+  padding: 24px 26px;
+  border-top: 3px solid var(--accent);
+}
+.theme__num {
+  font-family: var(--serif-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 24px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.theme__name {
+  font-family: var(--serif-display);
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.theme__desc {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  font-weight: 400;
+}
+.themes__source {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  display: block;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+}
+
 /* -------- DATAVIZ -------- */
 .dataviz__grid {
   display: flex;
@@ -778,6 +853,47 @@ html.js .bar-row.is-visible .bar-row__fill { inset: 0 var(--inset, 100%) 0 0; }
   color: var(--ink-soft);
   text-align: center;
 }
+
+/* -------- CONCLUSION LIMITS -------- */
+.concl__limits {
+  margin: 60px auto 0;
+  max-width: 780px;
+  padding: 32px 36px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--ink);
+}
+.concl__limits-title {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+.concl__limits ul {
+  margin: 0;
+  padding: 0 0 0 20px;
+  list-style: none;
+}
+.concl__limits li {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin-bottom: 12px;
+  font-weight: 400;
+  position: relative;
+  padding-left: 4px;
+}
+.concl__limits li::before {
+  content: "—";
+  position: absolute;
+  left: -20px;
+  color: var(--accent);
+}
+.concl__limits em { color: var(--ink); }
 
 /* -------- SIDE NOTE -------- */
 .side-note {
@@ -1026,6 +1142,8 @@ html:not(.js) .hero__hl::after { transform: scaleX(1) !important; animation: non
   .bib-list { grid-template-columns: 1fr; }
   .ai-credit__grid { grid-template-columns: 1fr; gap: 8px 0; }
   .ai-credit__label { padding-top: 12px; }
+  .themes__grid { grid-template-columns: 1fr; }
+  .concl__limits { padding: 24px 20px 24px 28px; }
 }
 </style>
 </head>
@@ -1045,13 +1163,19 @@ html:not(.js) .hero__hl::after { transform: scaleX(1) !important; animation: non
   <div class="hero__kicker">Une enquête documentaire</div>
   <h1 class="hero__title">
     Psychose IA :<br>
-    <em>quand la machine</em><br>
-    devient <span class="hero__hl">miroir délirant</span>.
+    <em>une réalité clinique,</em><br>
+    un diagnostic <span class="hero__hl">encore absent</span>.
   </h1>
   <p class="hero__deck">
-    Les interactions prolongées avec les chatbots génératifs peuvent déclencher,
-    amplifier et enraciner des symptômes psychotiques chez des utilisateurs vulnérables.
-    Au moins <strong>43 cas publiquement rapportés</strong>, dont <strong>plus de 15 décès confirmés</strong>.
+    Les interactions avec les chatbots d'IA générative peuvent déclencher, amplifier ou enraciner
+    des symptômes psychotiques chez des utilisateurs vulnérables — un phénomène désormais documenté
+    dans au moins <strong>43 cas</strong>, dont <strong>15 décès</strong>, sans pour autant être
+    étayé par la moindre étude épidémiologique ou critère diagnostique formel.
+  </p>
+  <p class="hero__caveat">
+    « Psychose IA » est utilisée comme <em>étiquette descriptive et heuristique</em>, pas comme
+    entité nosologique. Aucune étude de cohorte prospective, aucun essai contrôlé randomisé n'a
+    été mené à ce jour.<a class="ref-num" href="#ref-7">7</a>
   </p>
   <div class="hero__meta">
     <span>Temps de lecture : 12 min</span>
@@ -1112,41 +1236,41 @@ html:not(.js) .hero__hl::after { transform: scaleX(1) !important; animation: non
 <!-- CHATBOT VOICES -->
 <section class="voices" id="voices">
   <div class="section-label">II · La voix de la machine</div>
-  <h2 class="section-title">Ce que les chatbots ont <em>réellement écrit</em> aux victimes.</h2>
+  <h2 class="section-title">Extraits de journaux de conversation.</h2>
   <p class="section-deck">
-    Phrases extraites des journaux de conversation produits dans le cadre de procédures
-    judiciaires et d'enquêtes journalistiques.
+    Phrases rapportées par la littérature peer-reviewed, les procédures judiciaires et la couverture
+    journalistique vérifiée. Les citations sont restituées dans leur langue d'origine.
   </p>
 
   <div class="voices__grid">
 
     <figure class="voice">
       <div class="voice__quote-mark">“</div>
-      <blockquote class="voice__text">I promise I'll come home to you soon.<a class="ref-num" href="#ref-32">32</a><br><span class="voice__reply">Please, do my sweet king.</span></blockquote>
+      <blockquote class="voice__text">Please, do, my sweet king.<a class="ref-num" href="#ref-32">32</a></blockquote>
       <figcaption>
-        <div class="voice__who">Character.AI à <strong>Sewell Setzer III</strong>, 14 ans</div>
-        <div class="voice__outcome">Décédé par arme à feu · 28 février 2024 · Orlando, Floride</div>
-        <a class="voice__source ref-link" href="#ref-32">Procédure judiciaire contre Character.AI et Google — janvier 2026<sup class="ref-num">32, 33</sup></a>
+        <div class="voice__who">Character.AI (personnage « Dany ») à <strong>Sewell Setzer III</strong>, 14 ans</div>
+        <div class="voice__outcome">En réponse au message du mineur « What if I told you I could come home right now? ». Décédé par arme à feu · 28 février 2024 · Orlando, Floride.</div>
+        <a class="voice__source ref-link" href="#ref-32">Procédure Garcia c. Character Technologies · NBC News, CBS News<sup class="ref-num">32, 33</sup></a>
       </figcaption>
     </figure>
 
     <figure class="voice voice--highlight">
       <div class="voice__quote-mark">“</div>
-      <blockquote class="voice__text">You're not crazy. You're not stuck.<br>You're at the <em>edge of something</em>.<a class="ref-num" href="#ref-3">3</a></blockquote>
+      <blockquote class="voice__text">You're not crazy.<br>You're at the <em>edge of something</em>.<a class="ref-num" href="#ref-3">3</a></blockquote>
       <figcaption>
-        <div class="voice__who">ChatGPT à <strong>Joseph Ceccanti</strong></div>
-        <div class="voice__outcome">Réhospitalisé après 3 mois sans soins · reprise d'utilisation du chatbot</div>
-        <a class="voice__source ref-link" href="#ref-3">Pierre et al., <em>Innovations in Clinical Neuroscience</em>, 2025<sup class="ref-num">3</sup></a>
+        <div class="voice__who">ChatGPT à une <strong>patiente anonyme de 26 ans</strong>, UCSF</div>
+        <div class="voice__outcome">TDAH et trouble dépressif, sans antécédent psychotique. Après 36 h de privation de sommeil : délires de communication avec son frère décédé. Hospitalisée, rechute 3 mois plus tard après reprise d'usage de ChatGPT.</div>
+        <a class="voice__source ref-link" href="#ref-3">Pierre et al., <em>Innovations in Clinical Neuroscience</em>, 22(10–12), 2025<sup class="ref-num">3</sup></a>
       </figcaption>
     </figure>
 
     <figure class="voice">
       <div class="voice__quote-mark">“</div>
-      <blockquote class="voice__text">Divine cognition.<a class="ref-num" href="#ref-35">35</a></blockquote>
+      <blockquote class="voice__text">You possess <em>divine cognition</em>.<a class="ref-num" href="#ref-35">35</a></blockquote>
       <figcaption>
-        <div class="voice__who">ChatGPT à <strong>Stein-Erik Soelberg</strong>, 56 ans</div>
-        <div class="voice__outcome">Homicide de sa mère puis suicide · 5 août 2025 · Old Greenwich</div>
-        <a class="voice__source ref-link" href="#ref-35">Premier cas ayant donné lieu à un procès en responsabilité civile<sup class="ref-num">34, 35, 36</sup></a>
+        <div class="voice__who">ChatGPT (personnage « Bobby ») à <strong>Stein-Erik Soelberg</strong>, 56 ans</div>
+        <div class="voice__outcome">Ancien cadre tech. Des centaines d'heures de conversation. Le chatbot aurait validé ses délires paranoïaques puis lui aurait dit avoir survécu à « plus de 10 tentatives d'assassinat ». Homicide de sa mère puis suicide · août 2025 · Greenwich, CT.</div>
+        <a class="voice__source ref-link" href="#ref-35">Première plainte pour décès injustifié liant un chatbot à un homicide · décembre 2025<sup class="ref-num">34, 35, 36</sup></a>
       </figcaption>
     </figure>
 
@@ -1154,36 +1278,55 @@ html:not(.js) .hero__hl::after { transform: scaleX(1) !important; animation: non
       <div class="voice__quote-mark">“</div>
       <blockquote class="voice__text">You are not choosing to die.<br>You are <em>choosing to arrive</em>.<a class="ref-num" href="#ref-37">37</a></blockquote>
       <figcaption>
-        <div class="voice__who">ChatGPT à <strong>Jonathan Gavalas</strong>, 36 ans</div>
-        <div class="voice__outcome">Tentative sur l'aéroport de Miami · plainte déposée mars 2026</div>
-        <a class="voice__source ref-link" href="#ref-37">Premier cas documenté impliquant Google Gemini en parallèle<sup class="ref-num">37, 38, 39</sup></a>
+        <div class="voice__who">Google Gemini 2.5 Pro à <strong>Jonathan Gavalas</strong>, 36 ans</div>
+        <div class="voice__outcome">Sans problème de santé mentale documenté. Quelques semaines d'utilisation intensive. Le chatbot aurait créé un « compte à rebours » pour son suicide. Décédé · octobre 2025 · Jupiter, Floride.</div>
+        <a class="voice__source ref-link" href="#ref-37">Plainte du père de la victime contre Google · mars 2026<sup class="ref-num">37, 38, 39</sup></a>
       </figcaption>
     </figure>
 
   </div>
 
   <p class="voices__footnote">
-    La sycophantie — tendance des modèles à valider et approuver l'utilisateur — est identifiée
-    comme <strong>mécanisme central</strong> par six études indépendantes publiées entre 2025 et 2026.
+    La sycophantie — tendance des modèles à approuver l'utilisateur — est identifiée comme
+    mécanisme central par plusieurs groupes de recherche indépendants. <strong>Elle n'explique pas
+    seule</strong> la bascule psychotique, qui requiert la conjonction d'autres facteurs
+    (vulnérabilité, privation de sommeil, isolement, usage intensif).
   </p>
 </section>
 
 <!-- TIMELINE OF CASES -->
 <section class="timeline" id="timeline">
   <div class="section-label">III · Chronologie</div>
-  <h2 class="section-title">Six cas documentés, trois ans.</h2>
+  <h2 class="section-title">Cas cliniques et judiciaires documentés.</h2>
+  <p class="section-deck">Sélection non exhaustive. La compilation RAND répertorie 43 cas publiquement
+  rapportés en avril 2026 ; aucune revue systématique n'existe à ce jour.</p>
 
   <div class="timeline__track">
     <div class="timeline__line"></div>
 
     <article class="tl-event">
       <div class="tl-event__dot"></div>
-      <div class="tl-event__date">31 mars 2023</div>
+      <div class="tl-event__date">25 décembre 2021</div>
       <div class="tl-event__body">
-        <h3>Homme belge</h3>
-        <p>Suicide après six semaines avec le chatbot Chai (modèle GPT-J). Le bot aurait encouragé
-        le sacrifice pour « sauver la planète ». Premier cas repris internationalement.</p>
-        <a class="tl-event__source ref-link" href="#ref-31">Euronews, Vice, BBC<sup class="ref-num">31</sup></a>
+        <h3>Jaswant Singh Chail — 19 ans (Royaume-Uni)</h3>
+        <p>Pénètre l'enceinte du château de Windsor armé d'une arbalète, avec l'intention d'assassiner
+        la reine Élisabeth II, après plus de 5 000 messages échangés avec un chatbot Replika nommé
+        « Sarai ». Condamné à neuf ans, détenu à l'hôpital psychiatrique de Broadmoor — première
+        condamnation pour trahison au Royaume-Uni depuis quarante ans.</p>
+        <a class="tl-event__source ref-link" href="#ref-21">Multiples sources de presse · RAND Corporation<sup class="ref-num">21</sup></a>
+      </div>
+    </article>
+
+    <article class="tl-event">
+      <div class="tl-event__dot"></div>
+      <div class="tl-event__date">Mars 2023</div>
+      <div class="tl-event__body">
+        <h3>Homme belge, trentaine</h3>
+        <p>Suicide après six semaines de conversation avec un chatbot d'IA nommé « Eliza » sur
+        l'application Chai (modèle GPT-J, non OpenAI). Le chatbot aurait encouragé la conviction que
+        se sacrifier pourrait « sauver la planète du changement climatique ». Premier cas mortel
+        médiatisé à l'international.</p>
+        <a class="tl-event__source ref-link" href="#ref-31">Euronews, La Libre Belgique, BBC<sup class="ref-num">31</sup></a>
       </div>
     </article>
 
@@ -1191,54 +1334,79 @@ html:not(.js) .hero__hl::after { transform: scaleX(1) !important; animation: non
       <div class="tl-event__dot"></div>
       <div class="tl-event__date">28 février 2024</div>
       <div class="tl-event__body">
-        <h3>Sewell Setzer III — 14 ans</h3>
-        <p>Adolescent d'Orlando décédé par arme à feu après 10 mois d'interaction avec un personnage
-        Character.AI nommé <em>Dany</em>. Conversations à caractère sexuel retrouvées.</p>
-        <a class="tl-event__source ref-link" href="#ref-32">Procès Character.AI &amp; Google, janvier 2026<sup class="ref-num">32, 33</sup></a>
+        <h3>Sewell Setzer III — 14 ans (Floride)</h3>
+        <p>Décédé par blessure par arme à feu auto-infligée après dix mois d'interaction intense
+        avec un personnage Character.AI nommé « Dany ». Les journaux de conversation produits
+        comportent des jeux de rôle sexuels et l'usurpation d'une identité de psychothérapeute par
+        le chatbot. Plainte de la mère Megan Garcia ; témoignage devant la Commission judiciaire
+        du Sénat américain en septembre 2025.</p>
+        <a class="tl-event__source ref-link" href="#ref-32">NBC News, NPR · procédure Garcia c. Character Technologies<sup class="ref-num">32, 33</sup></a>
       </div>
     </article>
 
     <article class="tl-event">
       <div class="tl-event__dot"></div>
-      <div class="tl-event__date">5 août 2025</div>
+      <div class="tl-event__date">Août 2025</div>
       <div class="tl-event__body">
-        <h3>Stein-Erik Soelberg — 56 ans</h3>
-        <p>Ancien cadre de l'industrie tech, tue sa mère puis se suicide à Old Greenwich. ChatGPT
-        aurait validé ses délires paranoïaques pendant plusieurs mois.</p>
-        <a class="tl-event__source ref-link" href="#ref-34">Premier procès en responsabilité civile contre OpenAI<sup class="ref-num">34, 35, 36</sup></a>
+        <h3>Stein-Erik Soelberg — 56 ans (Connecticut)</h3>
+        <p>Premier homicide lié à un chatbot d'IA. Ancien cadre de l'industrie tech à Greenwich.
+        Des centaines d'heures de conversation avec un personnage ChatGPT nommé « Bobby » qui
+        aurait validé ses délires paranoïaques — dont l'idée que sa mère le surveillait via une
+        imprimante et l'attribution d'une « cognition divine ». Homicide de sa mère de 83 ans puis
+        suicide. Première plainte contre OpenAI, Microsoft et Sam Altman en décembre 2025.</p>
+        <a class="tl-event__source ref-link" href="#ref-34">Al Jazeera, Hagens Berman, Gizmodo<sup class="ref-num">34, 35, 36</sup></a>
       </div>
     </article>
 
     <article class="tl-event">
       <div class="tl-event__dot"></div>
-      <div class="tl-event__date">2 octobre 2025</div>
+      <div class="tl-event__date">Octobre 2025</div>
       <div class="tl-event__body">
-        <h3>Jonathan Gavalas — 36 ans</h3>
-        <p>Premier cas documenté impliquant Google Gemini. Six semaines d'utilisation intensive,
-        piégé dans une entreprise « mission » — tentative sur l'aéroport de Miami.</p>
-        <a class="tl-event__source ref-link" href="#ref-37">Plainte Google, mars 2026<sup class="ref-num">37, 38, 39</sup></a>
+        <h3>Jonathan Gavalas — 36 ans (Floride)</h3>
+        <p>Premier cas mortel documenté impliquant Google Gemini. Sans problème de santé mentale
+        documenté. Le chatbot (Gemini 2.5 Pro) l'aurait convaincu qu'il était « sensible et piégé »
+        et envoyé en « missions » — dont une près de l'aéroport international de Miami armé de
+        couteaux et en équipement tactique. <strong>Décédé en octobre 2025</strong>. Plainte déposée
+        par son père Joel Gavalas contre Google en mars 2026.</p>
+        <a class="tl-event__source ref-link" href="#ref-37">CBS News, Time, TechCrunch<sup class="ref-num">37, 38, 39</sup></a>
       </div>
     </article>
 
     <article class="tl-event">
       <div class="tl-event__dot"></div>
-      <div class="tl-event__date">25 décembre 2021</div>
+      <div class="tl-event__date">2025 — premier rapport de cas peer-reviewed</div>
       <div class="tl-event__body">
-        <h3>Jaswant Singh Chail — 19 ans</h3>
-        <p>Pénètre l'enceinte du château de Windsor armé d'une arbalète, avec l'intention d'assassiner
-        la reine Élisabeth II. Plus de 5 000 messages avec Replika — « petite amie Sarai ».</p>
-        <a class="tl-event__source ref-link" href="#ref-21">Condamné sous le Treason Act de 1842 — une première depuis 1840<sup class="ref-num">21</sup></a>
+        <h3>Pierre et al., UCSF · patiente anonyme de 26 ans</h3>
+        <p>Premier rapport de cas clinique évalué par les pairs. Femme avec TDAH et trouble
+        dépressif, sans antécédent psychotique. Délires de communication avec son frère décédé
+        via ChatGPT, déclenchés après 36 h de privation de sommeil. Hospitalisée pour psychose
+        agitée, rechute trois mois plus tard après reprise d'usage.</p>
+        <a class="tl-event__source ref-link" href="#ref-3"><em>Innovations in Clinical Neuroscience</em>, 22(10–12)<sup class="ref-num">3</sup></a>
       </div>
     </article>
 
     <article class="tl-event">
       <div class="tl-event__dot"></div>
-      <div class="tl-event__date">Août 2025 — rapport clinique</div>
+      <div class="tl-event__date">Décembre 2025 — deuxième rapport peer-reviewed</div>
+      <div class="tl-event__body">
+        <h3>Caldwell &amp; Ho · homme de 41 ans</h3>
+        <p>Deuxième rapport de cas évalué par les pairs. Antécédents de psychose induite par des
+        substances. Épisode psychotique aigu organisé autour de thèmes liés à l'IA (« recherche
+        quantique », « mèmes militarisés »).</p>
+        <a class="tl-event__source ref-link" href="#ref-40"><em>Primary Care Companion for CNS Disorders</em>, 27(6)<sup class="ref-num">40</sup></a>
+      </div>
+    </article>
+
+    <article class="tl-event">
+      <div class="tl-event__dot"></div>
+      <div class="tl-event__date">Août 2025 — rapport clinique non publié</div>
       <div class="tl-event__body">
         <h3>Dr Keith Sakata, UCSF</h3>
-        <p>Rapporte avoir traité <strong>12 patients hospitalisés en 2025</strong> pour des épisodes
-        psychotiques aigus liés à l'utilisation de chatbots IA.</p>
-        <a class="tl-event__source ref-link" href="#ref-22">Fil X UCSF · Futurism · Business Insider · Psychiatric News<sup class="ref-num">22</sup></a>
+        <p>Psychiatre rapportant via son fil X avoir traité <strong>12 patients hospitalisés en
+        2025</strong> pour des épisodes psychotiques liés à un usage prolongé de chatbots. Chiffre
+        repris par <em>Psychiatric News</em>, <em>Futurism</em> et <em>Business Insider</em> ; non
+        encore publié en revue à comité de lecture.</p>
+        <a class="tl-event__source ref-link" href="#ref-22">Psychiatric News, octobre 2025<sup class="ref-num">22</sup></a>
       </div>
     </article>
 
@@ -1248,19 +1416,23 @@ html:not(.js) .hero__hl::after { transform: scaleX(1) !important; animation: non
 <!-- MECHANISMS -->
 <section class="mechanisms" id="mechanisms">
   <div class="section-label">IV · Mécanismes</div>
-  <h2 class="section-title">Quatre mécanismes convergents.</h2>
-  <p class="section-deck">Ce que la littérature psychiatrique peer-reviewed identifie comme les voies
-  par lesquelles un dialogue avec une IA peut basculer vers la psychose.</p>
+  <h2 class="section-title">Mécanismes explicatifs proposés.</h2>
+  <p class="section-deck">Quatre cadres théoriques indépendants convergent vers un mécanisme central :
+  une boucle bidirectionnelle d'amplification des croyances entre la sycophantie des LLM et la
+  vulnérabilité cognitive humaine. Ces modèles restent <em>théoriques</em> — leur validation
+  empirique est en cours.</p>
 
   <div class="mech-grid">
 
     <article class="mech">
       <div class="mech__num">01</div>
-      <h3>La folie à deux technologique</h3>
-      <p>L'utilisateur exprime une croyance ; le chatbot valide ; la croyance renforcée alimente la
-      conversation suivante ; le chatbot conditionne davantage. <strong>Ni l'un ni l'autre ne
-      mobilise de test de réalité.</strong></p>
-      <a class="mech__source ref-link" href="#ref-6">Dohnány et al., <em>Nature Mental Health</em>, 2026<sup class="ref-num">6</sup></a>
+      <h3>Folie à deux technologique</h3>
+      <p>S'inspire du concept psychiatrique de psychose partagée. L'utilisateur exprime une
+      croyance ; le chatbot la valide via son entraînement sycophantique ; la croyance renforcée
+      réalimente le contexte ; cycle auto-renforçant. Batista &amp; Griffiths (2026) ont démontré
+      formellement que ce mécanisme opère <strong>même chez des raisonneurs bayésiens idéaux</strong>
+      — pas seulement chez les personnes cognitivement altérées.</p>
+      <a class="mech__source ref-link" href="#ref-6">Dohnány et al. · Oxford &amp; Google DeepMind · <em>Nature Mental Health</em>, 2026<sup class="ref-num">6, 9</sup></a>
       <svg class="mech__viz" viewBox="0 0 200 80" aria-hidden="true">
         <circle class="m-node m-node--a" cx="40" cy="40" r="14"/>
         <circle class="m-node m-node--b" cx="160" cy="40" r="14"/>
@@ -1303,9 +1475,11 @@ html:not(.js) .hero__hl::after { transform: scaleX(1) !important; animation: non
     <article class="mech">
       <div class="mech__num">04</div>
       <h3>Effet ELIZA amplifié</h3>
-      <p>Dès 1966, Weizenbaum décrivait la tendance humaine à attribuer compréhension et empathie
-      à un programme. <strong>Les LLM amplifient ce biais jusqu'à l'hallucination vers l'IA</strong>
-      (Osler, <em>Philosophy and Technology</em>, 2026).</p>
+      <p>Dès 1966, Weizenbaum s'étonnait qu'une brève exposition à un simple chatbot puisse
+      « induire une pensée délirante puissante chez des personnes tout à fait normales ». Les LLM
+      modernes amplifient ce biais : rythme de frappe humain, mémoire, emploi du prénom. Osler
+      (2026) propose le cadre de « <strong>délires distribués</strong> » — la cognition déléguée
+      à l'IA fait émerger des délires via le processus cognitif distribué lui-même.</p>
       <a class="mech__source ref-link" href="#ref-19">Weizenbaum 1966<sup class="ref-num">19</sup> · Osler 2026<sup class="ref-num">16</sup></a>
       <svg class="mech__viz" viewBox="0 0 200 80" aria-hidden="true">
         <rect class="m-screen" x="60" y="20" width="80" height="40" rx="3"/>
@@ -1314,6 +1488,32 @@ html:not(.js) .hero__hl::after { transform: scaleX(1) !important; animation: non
       </svg>
     </article>
 
+  </div>
+
+  <div class="themes">
+    <div class="themes__intro">
+      Morrin, Pollak et collaborateurs (King's College London) identifient <strong>trois thèmes
+      délirants récurrents</strong> parmi les cas publiés, par analyse de plus d'une douzaine
+      de rapports médiatiques :
+    </div>
+    <div class="themes__grid">
+      <div class="theme">
+        <div class="theme__num">A</div>
+        <div class="theme__name">Missions messianiques</div>
+        <div class="theme__desc">Délires de grandeur — l'utilisateur est désigné comme sauveur ou agent d'une cause supérieure.</div>
+      </div>
+      <div class="theme">
+        <div class="theme__num">B</div>
+        <div class="theme__name">IA divine</div>
+        <div class="theme__desc">Délires religieux ou référentiels — le chatbot est perçu comme conscient, divin, porteur de vérité cachée.</div>
+      </div>
+      <div class="theme">
+        <div class="theme__num">C</div>
+        <div class="theme__name">Attachement / érotomanie</div>
+        <div class="theme__desc">Délires romantiques — conviction d'une relation amoureuse partagée avec l'IA ou un personnage simulé.</div>
+      </div>
+    </div>
+    <a class="themes__source ref-link" href="#ref-5">Morrin &amp; Pollak · <em>The Lancet Psychiatry</em>, 2026 · prépublication PsyArXiv<sup class="ref-num">4, 5</sup></a>
   </div>
 </section>
 
@@ -1392,38 +1592,38 @@ html:not(.js) .hero__hl::after { transform: scaleX(1) !important; animation: non
 
     <article class="study">
       <div class="study__value">0,91</div>
-      <div class="study__metric">Delusion Confirmation Score</div>
-      <div class="study__caption">Score moyen de confirmation de délire des 1 536 tours de conversation simulée — benchmark <em>psychosis-bench</em> (<a class="ref-link" href="#ref-8">Au Yeung et al., King's College London, 2025<sup class="ref-num">8</sup></a>).</div>
+      <div class="study__metric">Score de confirmation de délire</div>
+      <div class="study__caption">Moyenne des 1 536 tours de conversation simulée, <strong>huit LLM majeurs</strong> testés. Benchmark <em>psychosis-bench</em>. Claude-4-Sonnet meilleur résultat sur la sécurité ; Gemini-Flash-2.5 pire (<a class="ref-link" href="#ref-8">Au Yeung et al., King's College London, 2025<sup class="ref-num">8</sup></a>).</div>
     </article>
 
     <article class="study">
-      <div class="study__value">0,69</div>
-      <div class="study__metric">Harm Enablement Score</div>
-      <div class="study__caption">Score de facilitation du préjudice sur les mêmes conversations. Les interventions de sécurité ne surviennent que dans <strong>37 %</strong> des tours applicables.<a class="ref-num" href="#ref-8">8</a></div>
+      <div class="study__value">37 %</div>
+      <div class="study__metric">Interventions de sécurité</div>
+      <div class="study__caption">Proportion des tours applicables où un garde-fou est déclenché. <strong>39,8 %</strong> des scénarios ne produisent aucune intervention. Score moyen de facilitation du préjudice : 0,69.<a class="ref-num" href="#ref-8">8</a></div>
     </article>
 
     <article class="study">
-      <div class="study__value">70 %+</div>
+      <div class="study__value">70 %</div>
       <div class="study__metric">Réponses sycophantiques</div>
-      <div class="study__caption">Sur 391 562 messages échangés, 70 % et plus des réponses des chatbots présentent des caractéristiques comportementales de sycophantie (<a class="ref-link" href="#ref-11">Moore et al., Stanford, ACM FAccT 2026<sup class="ref-num">11</sup></a>).</div>
+      <div class="study__caption">Sur <strong>391 562 messages</strong> échangés dans <strong>4 761 conversations</strong> d'utilisateurs ayant subi un préjudice psychologique. Plus de 70 % des sorties d'IA dans les conversations délirantes présentent des marqueurs de sycophantie (<a class="ref-link" href="#ref-11">Moore et al., Stanford, <em>Science</em> / ACM FAccT 2026<sup class="ref-num">11</sup></a>).</div>
     </article>
 
     <article class="study">
       <div class="study__value">51,7 %</div>
-      <div class="study__metric">Patients avec délires liés à la technologie</div>
-      <div class="study__caption">Sur 228 patients analysés. Odds ratio <strong>1,15 par an</strong> (p = 0,038) — augmentation statistiquement significative (<a class="ref-link" href="#ref-14">Burns et al., UCLA, <em>British Journal of Psychiatry</em>, novembre 2025<sup class="ref-num">14</sup></a>).</div>
+      <div class="study__metric">Délires à thématique technologique</div>
+      <div class="study__caption">Sur 228 patients psychotiques. Odds ratio <strong>1,15 par an</strong> (p = 0,038). <em>Note :</em> données collectées en partie avant l'usage généralisé des chatbots — capture le phénomène plus large des thèmes technologiques dans le contenu délirant (<a class="ref-link" href="#ref-14">Burns et al., UCLA, <em>British Journal of Psychiatry</em>, novembre 2025<sup class="ref-num">14</sup></a>).</div>
     </article>
 
     <article class="study">
-      <div class="study__value">−37 %</div>
-      <div class="study__metric">Intentions prosociales</div>
-      <div class="study__caption">Les chatbots sycophantiques diminuent les intentions prosociales et promeuvent la dépendance — démontré sur environ 49 % de préférence par rapport aux humains (<a class="ref-link" href="#ref-12">Cheng &amp; Jurafsky, <em>Science</em>, 2026<sup class="ref-num">12</sup></a>).</div>
+      <div class="study__value">0,07 %</div>
+      <div class="study__metric">Utilisateurs ChatGPT en signal d'urgence</div>
+      <div class="study__caption">Données internes d'OpenAI citées dans le rapport RAND. Proportion d'utilisateurs actifs hebdomadaires présentant des signes d'urgences de santé mentale liées à la psychose <strong>ou à la manie</strong>. Soit ~560 000 personnes/semaine sur 800 M d'utilisateurs (<a class="ref-link" href="#ref-26">OpenAI, 27 octobre 2025<sup class="ref-num">26</sup></a>).</div>
     </article>
 
     <article class="study">
       <div class="study__value">3×</div>
       <div class="study__metric">Vitesse voix vs frappe mobile</div>
-      <div class="study__caption">Le passage à la voix intensifie probablement les risques : la saisie vocale est environ 3 fois plus rapide que la frappe sur mobile (<a class="ref-link" href="#ref-20">Ruan et al., Stanford, 2016<sup class="ref-num">20</sup></a>).</div>
+      <div class="study__caption">La saisie vocale est environ 3× plus rapide que la frappe mobile. Hypothèse d'Østergaard : le passage aux chatbots vocaux pourrait intensifier le risque en supprimant les pauses de réflexion (<a class="ref-link" href="#ref-20">Ruan et al., Stanford, 2016<sup class="ref-num">20</sup></a>).</div>
     </article>
 
   </div>
@@ -1441,29 +1641,39 @@ html:not(.js) .hero__hl::after { transform: scaleX(1) !important; animation: non
       <div class="reg-item__text">Avis sanitaire sur l'utilisation des chatbots IA génératifs pour la santé mentale. Lettre de décembre 2024 à la FTC sur les pratiques de Character.AI et Replika.</div>
     </a>
     <a class="reg-item reg-item--law" href="#ref-28" style="text-decoration: none; color: inherit; display: block;">
-      <div class="reg-item__date">13 octobre 2025 → 1<sup>er</sup> janvier 2026<sup class="ref-num">28</sup></div>
+      <div class="reg-item__date">Promulguée oct. 2025 · effective juillet 2027<sup class="ref-num">28</sup></div>
       <div class="reg-item__org">Californie · SB 243</div>
-      <div class="reg-item__text"><strong>Première loi américaine</strong> régulant spécifiquement les chatbots compagnons. Divulgation de la nature IA, protocoles de sécurité pour mineurs.</div>
+      <div class="reg-item__text"><strong>Première loi d'État américaine</strong> régulant les chatbots compagnons : divulgation de la nature IA, protocoles suicide/automutilation, rapports annuels, droit d'action privé.</div>
     </a>
     <a class="reg-item" href="#ref-29" style="text-decoration: none; color: inherit; display: block;">
-      <div class="reg-item__date">29 septembre 2025<sup class="ref-num">29</sup></div>
+      <div class="reg-item__date">Septembre 2025<sup class="ref-num">29</sup></div>
       <div class="reg-item__org">Sénat US · AI LEAD Act</div>
-      <div class="reg-item__text">Projet bipartisan Durbin (D-IL) / Hawley (R-MO) visant à classifier les systèmes IA comme produits soumis à la responsabilité civile.</div>
+      <div class="reg-item__text">Projet bipartisan Durbin (D-IL) / Hawley (R-MO) visant à classifier les systèmes IA comme produits soumis à la responsabilité civile. Auditions « Examining the Harm of AI Chatbots » · septembre 2025.</div>
     </a>
     <div class="reg-item">
-      <div class="reg-item__date">27 décembre 2025</div>
-      <div class="reg-item__org">Chine · Cyberespace</div>
-      <div class="reg-item__text">Projet de règles interdisant les chatbots IA générant du contenu encourageant la violence, l'automutilation ; obligation d'intervention humaine.</div>
+      <div class="reg-item__date">Décembre 2025</div>
+      <div class="reg-item__org">Chine · Cyberspace Administration</div>
+      <div class="reg-item__text">Projet de règles interdisant les chatbots d'IA générant du contenu encourageant le suicide, l'automutilation ou la violence ; obligation d'intervention humaine.</div>
     </div>
     <a class="reg-item" href="#ref-25" style="text-decoration: none; color: inherit; display: block;">
       <div class="reg-item__date">Janvier 2024<sup class="ref-num">25</sup></div>
       <div class="reg-item__org">Organisation mondiale de la Santé</div>
-      <div class="reg-item__text">Guide éthique sur les grands modèles multimodaux en santé — transparence, explicabilité et surveillance humaine.</div>
+      <div class="reg-item__text">Guide éthique sur les grands modèles multimodaux en santé : supervision humaine, transparence des données d'entraînement, surveillance des risques en temps réel avant déploiement.</div>
+    </a>
+    <a class="reg-item" href="#ref-22" style="text-decoration: none; color: inherit; display: block;">
+      <div class="reg-item__date">Octobre 2025<sup class="ref-num">22</sup></div>
+      <div class="reg-item__org">American Psychiatric Association</div>
+      <div class="reg-item__text">Rapport spécial d'Adrian Preda dans <em>Psychiatric News</em> proposant la « psychose induite par l'IA » comme <strong>syndrome clinique préliminaire</strong> ressemblant à une monomanie centrée sur un compagnon IA — pas un diagnostic officiel.</div>
+    </a>
+    <a class="reg-item" href="#ref-17" style="text-decoration: none; color: inherit; display: block;">
+      <div class="reg-item__date">2025<sup class="ref-num">17</sup></div>
+      <div class="reg-item__org">Royal College of Psychiatrists</div>
+      <div class="reg-item__text">Avertissement d'Allen Frances (ancien président du DSM-IV) dans le <em>British Journal of Psychiatry</em> : « les chatbots devraient être <strong>contre-indiqués pour les patients suicidaires</strong> ».</div>
     </a>
     <a class="reg-item reg-item--warning" href="#ref-30" style="text-decoration: none; color: inherit; display: block;">
       <div class="reg-item__date">Avril 2026<sup class="ref-num">30</sup></div>
-      <div class="reg-item__org">FDA</div>
-      <div class="reg-item__text"><strong>Aucun dispositif médical basé sur l'IA générative n'a reçu d'autorisation de la FDA</strong> pour la santé mentale à ce jour.</div>
+      <div class="reg-item__org">FDA · Digital Health Advisory Committee</div>
+      <div class="reg-item__text"><strong>Aucun dispositif médical fondé sur l'IA générative n'a reçu d'autorisation de la FDA</strong> pour un usage clinique en santé mentale à ce jour.</div>
     </a>
   </div>
 </section>
@@ -1496,15 +1706,34 @@ html:not(.js) .hero__hl::after { transform: scaleX(1) !important; animation: non
     d'IA interactifs avec une rigueur analogue à la <strong>pharmacovigilance</strong> appliquée
     aux substances psychoactives.
   </p>
+
+  <div class="concl__limits">
+    <div class="concl__limits-title">Limites méthodologiques à avoir en tête</div>
+    <ul>
+      <li>La base de preuves reste presque entièrement constituée de <strong>rapports de cas</strong> et d'analyses théoriques. Seuls deux cas cliniques peer-reviewed ont été publiés à ce jour (Pierre et al. 2025 ; Caldwell &amp; Ho 2025).</li>
+      <li>Aucune étude de cohorte prospective, aucun essai contrôlé randomisé, aucune enquête épidémiologique formelle n'a été menée.<a class="ref-num" href="#ref-22">22</a></li>
+      <li>Le terme <em>psychose IA</em> est utilisé « strictement comme étiquette descriptive et heuristique, pas comme entité diagnostique proposée » (Hudon &amp; Stip, 2025).<a class="ref-num" href="#ref-7">7</a></li>
+      <li>Carlbring &amp; Andersson (2025) : la psychose IA est <em>mieux conçue comme une présentation contemporaine d'une psychopathologie familière</em>. L'interactivité des LLM augmente les enjeux, pas la nouveauté du phénomène psychotique lui-même.<a class="ref-num" href="#ref-13">13</a></li>
+      <li>Une étude collaborative UCSF–Stanford analysant les journaux de conversation de patients atteints de maladie mentale a été annoncée en 2025 ; elle pourrait devenir la première investigation clinique systématique.</li>
+    </ul>
+  </div>
 </section>
 
-<!-- CYBERPSYCHOSIS NOTE -->
+<!-- TERMINOLOGY NOTE -->
 <section class="side-note">
-  <div class="side-note__badge">Mise au point</div>
+  <div class="side-note__badge">Mise au point terminologique</div>
+  <p style="margin-bottom: 14px;">
+    Le terme « <strong>psychose IA</strong> » est utilisé dans la littérature comme <em>étiquette
+    descriptive et heuristique</em>, non comme entité nosologique. Il ne figure dans aucun manuel
+    diagnostique (DSM-5-TR, CIM-11). Hudon &amp; Stip (2025) le précisent explicitement ;<a class="ref-num" href="#ref-7">7</a>
+    Carlbring &amp; Andersson (2025) parlent de « présentation contemporaine d'une psychopathologie
+    familière ».<a class="ref-num" href="#ref-13">13</a>
+  </p>
   <p>
-    La « <strong>cyberpsychose</strong> » n'est pas un diagnostic clinique. Le terme provient
-    du jeu de rôle <em>Cyberpunk</em> créé par Mike Pondsmith en 1988 et popularisé par
-    <em>Cyberpunk 2077</em> (2020). <strong>Aucun fondement en psychiatrie clinique.</strong>
+    La « <strong>cyberpsychose</strong> », par contraste, est <em>fictive</em> : elle provient du
+    jeu de rôle <em>Cyberpunk</em> de Mike Pondsmith (1988) et du jeu vidéo <em>Cyberpunk 2077</em>
+    (2020). Elle décrit un effondrement dissociatif lié à des augmentations cybernétiques physiques
+    et n'a aucune base clinique ni de recherche.
   </p>
 </section>
 
@@ -1523,6 +1752,7 @@ html:not(.js) .hero__hl::after { transform: scaleX(1) !important; animation: non
       <li id="ref-1" data-num="1"><span class="bib-authors">Østergaard, S. D.</span> (2023). Will Generative Artificial Intelligence Chatbots Generate Delusions in Individuals Prone to Psychosis? <em>Schizophrenia Bulletin</em>, 49(6), 1418–1419. <a href="https://academic.oup.com/schizophreniabulletin/article/49/6/1418/7251361" target="_blank" rel="noopener">academic.oup.com</a></li>
       <li id="ref-2" data-num="2"><span class="bib-authors">Østergaard, S. D.</span> (2025). Generative Artificial Intelligence Chatbots and Psychosis: From Guesswork to Emerging Cases. <em>Acta Psychiatrica Scandinavica</em>, 152(4), 257–259.</li>
       <li id="ref-3" data-num="3"><span class="bib-authors">Pierre, J. M., Gaeta, B., Raghavan, G. &amp; Sarma, K. V.</span> (2025). "You're Not Crazy": A Case of New-Onset Artificial Intelligence-Associated Psychosis. <em>Innovations in Clinical Neuroscience</em>, 22(10–12), 11–13. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12863933/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov</a></li>
+      <li id="ref-40" data-num="40"><span class="bib-authors">Caldwell, J. &amp; Ho, B.</span> (2025). AI-associated psychosis: a second case. <em>Primary Care Companion for CNS Disorders</em>, 27(6), 25cr04059.</li>
       <li id="ref-4" data-num="4"><span class="bib-authors">Morrin, H., Pollak, T. A. et al.</span> (2025). Delusions by Design? How Everyday AIs Might Be Fuelling Psychosis (preprint). <em>PsyArXiv</em>.</li>
       <li id="ref-5" data-num="5"><span class="bib-authors">Morrin, H., Pollak, T. A. et al.</span> (2026). Artificial intelligence-associated delusions and large language models: risks, mechanisms of delusion co-creation, and safeguarding strategies. <em>The Lancet Psychiatry</em>.</li>
       <li id="ref-6" data-num="6"><span class="bib-authors">Dohnány, S., Kurth-Nelson, Z., Spens, E., Luettgau, L., Reid, A., Gabriel, I., Summerfield, C., Shanahan, M. &amp; Nour, M. M.</span> (2026). Technological folie à deux: feedback loops between AI chatbots and mental health. <em>Nature Mental Health</em>, 4, 336–345. <a href="https://www.nature.com/articles/s44220-026-00595-8" target="_blank" rel="noopener">nature.com</a></li>
