@@ -3,7 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Psychose IA — Une réalité clinique émergente</title>
+<title>Psychose IA — Une réalité clinique, un diagnostic encore absent</title>
+<meta name="description" content="Enquête documentaire sur la psychose IA : 43 cas rapportés, 15 décès liés à des interactions avec des chatbots génératifs. Mécanismes, études, régulation — sources peer-reviewed et institutionnelles.">
+<meta name="author" content="Pierre Vannier — Flint">
+<meta name="robots" content="index, follow">
+<!-- Open Graph / LinkedIn / Facebook -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Psychose IA — Une réalité clinique, un diagnostic encore absent">
+<meta property="og:description" content="43 cas rapportés, 15 décès, 4 mécanismes convergents. Ce que disent les études peer-reviewed sur les interactions chatbot–psychose en avril 2026.">
+<meta property="og:url" content="https://ai-psychosis.flint-company.koyeb.app/">
+<meta property="og:site_name" content="Flint · Enquête Santé mentale">
+<meta property="og:locale" content="fr_FR">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Psychose IA — Une réalité clinique, un diagnostic encore absent">
+<meta name="twitter:description" content="43 cas rapportés, 15 décès, 4 mécanismes convergents. Enquête documentaire.">
+<!-- Favicon (inline SVG, no external file) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f7f5f0'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%23b30000' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%23b30000'/%3E%3C/svg%3E">
 <script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1254,6 +1270,174 @@ html:not(.js) .hero__meta,
 html:not(.js) .hero__scroll { opacity: 1 !important; animation: none !important; }
 html:not(.js) .hero__hl::after { transform: scaleX(1) !important; animation: none !important; }
 
+/* -------- SECTION NAV -------- */
+.section-nav {
+  position: sticky;
+  top: 46px;
+  z-index: 45;
+  background: rgba(247, 245, 240, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+  padding: 10px 0;
+}
+.section-nav__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.section-nav__inner::-webkit-scrollbar { display: none; }
+.section-nav a {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: color .2s, background .2s;
+}
+.section-nav a:hover { color: var(--accent); background: rgba(179,0,0,0.05); }
+.section-nav a.is-current { color: var(--accent); background: rgba(179,0,0,0.08); }
+
+/* -------- BACK TO TOP -------- */
+.back-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--bg);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s, transform .3s, background .3s;
+  z-index: 100;
+  font-family: var(--sans);
+  font-size: 18px;
+  line-height: 1;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.back-top.is-visible { opacity: 1; pointer-events: auto; }
+.back-top:hover { background: var(--accent); transform: translateY(-3px); }
+
+/* -------- SIGNATURE / BYLINE -------- */
+.byline {
+  max-width: 720px;
+  margin: 80px auto 40px;
+  padding: 40px 36px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--accent);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.byline__avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), #7a0000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg);
+  font-family: var(--serif-display);
+  font-weight: 900;
+  font-size: 26px;
+  letter-spacing: -0.02em;
+}
+.byline__content { padding-top: 4px; }
+.byline__label {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 8px;
+}
+.byline__name {
+  font-family: var(--serif-display);
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+  margin: 0 0 4px;
+}
+.byline__title {
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+.byline__links {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-family: var(--sans);
+  font-size: 13px;
+}
+.byline__links a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  transition: border-color .2s;
+}
+.byline__links a:hover { border-color: var(--accent); }
+.byline__bio {
+  margin-top: 14px;
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-mute);
+  font-weight: 400;
+  font-style: italic;
+}
+@media (max-width: 600px) {
+  .byline { grid-template-columns: 1fr; text-align: left; padding: 28px 24px; }
+  .section-nav { display: none; }
+  .back-top { width: 42px; height: 42px; bottom: 20px; right: 20px; }
+}
+
+/* -------- PRINT STYLES -------- */
+@media print {
+  body { background: #fff; color: #000; font-size: 12pt; }
+  .site-header, .disclosure, .section-nav, .back-top,
+  .hero__scroll, .hero__pulse, .site-footer { display: none !important; }
+  .hero { padding: 0 0 30px; page-break-after: avoid; }
+  .hero__title { font-size: 32pt; }
+  section { padding: 20px 0; page-break-inside: avoid; max-width: 100%; }
+  .numbers__grid, .voices__grid, .mech-grid, .research__grid,
+  .reg-grid, .themes__grid, .concl-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stat, .voice, .mech, .study, .reg-item, .theme, .concl { break-inside: avoid; }
+  .pullquote { break-inside: avoid; padding: 20px 0; background: #fff !important; color: #000 !important; }
+  .pullquote blockquote { color: #000 !important; }
+  .pullquote--dark { background: #fff !important; color: #000 !important; }
+  .pullquote--dark blockquote { color: #000 !important; }
+  a { color: #000; text-decoration: none; }
+  .ref-num { display: none; }
+  .ai-credit { background: #fff !important; color: #000 !important; padding: 20px 0 !important; }
+  .ai-credit .section-title { color: #000 !important; }
+  .ai-credit__value { color: #000 !important; }
+  .corpus-details { display: none; }
+  .byline { background: #fff; border: 1px solid #000; }
+}
+
 /* -------- RESPONSIVE -------- */
 @media (max-width: 900px) {
   .site-header__inner { grid-template-columns: 1fr; gap: 6px; text-align: center; }
@@ -1301,6 +1485,23 @@ html:not(.js) .hero__hl::after { transform: scaleX(1) !important; animation: non
     <a class="disclosure__link" href="#ai-credit">Toute la méthode documentée <span aria-hidden="true">↓</span></a>
   </div>
 </aside>
+
+<nav class="section-nav" aria-label="Sommaire de l'enquête">
+  <div class="section-nav__inner">
+    <a href="#numbers">I · Échelle</a>
+    <a href="#voices">II · Voix</a>
+    <a href="#timeline">III · Chronologie</a>
+    <a href="#mechanisms">IV · Mécanismes</a>
+    <a href="#dataviz">V · Vulnérabilité</a>
+    <a href="#research">VI · Études</a>
+    <a href="#regulation">VII · Régulation</a>
+    <a href="#conclusion">VIII · Conclusion</a>
+    <a href="#bibliography">IX · Bibliographie</a>
+    <a href="#ai-credit">Méthode</a>
+  </div>
+</nav>
+
+<button class="back-top" id="backTop" aria-label="Retour en haut de page" title="Retour en haut">↑</button>
 
 <main>
 
@@ -1865,6 +2066,26 @@ html:not(.js) .hero__hl::after { transform: scaleX(1) !important; animation: non
   </div>
 </section>
 
+<!-- BYLINE -->
+<section class="byline" aria-label="À propos de l'auteur">
+  <div class="byline__avatar">PV</div>
+  <div class="byline__content">
+    <div class="byline__label">À propos de cette enquête</div>
+    <div class="byline__name">Pierre Vannier</div>
+    <div class="byline__title">[Titre à compléter] · Flint</div>
+    <div class="byline__links">
+      <a href="mailto:[email-pro@à-compléter.com]">[email-pro@à-compléter.com]</a>
+      <span style="color: var(--rule);">·</span>
+      <a href="[url-linkedin-à-compléter]" target="_blank" rel="noopener">LinkedIn</a>
+      <span style="color: var(--rule);">·</span>
+      <a href="#ai-credit">Méthode documentée</a>
+    </div>
+    <p class="byline__bio">
+      [Bio à compléter — une ou deux phrases sur le contexte professionnel et l'intérêt pour le sujet.]
+    </p>
+  </div>
+</section>
+
 <!-- TERMINOLOGY NOTE -->
 <section class="side-note">
   <div class="side-note__badge">Mise au point terminologique</div>
@@ -2243,6 +2464,31 @@ Je veux des conclusions de papier de recherche.</pre></div>
       window.addEventListener('scroll', () => {
         pulse.style.transform = `translateY(${window.scrollY * 0.2}px)`;
       }, { passive: true });
+    }
+
+    // Back-to-top button
+    const backTop = document.getElementById('backTop');
+    if (backTop) {
+      const toggle = () => {
+        if (window.scrollY > 800) backTop.classList.add('is-visible');
+        else backTop.classList.remove('is-visible');
+      };
+      window.addEventListener('scroll', toggle, { passive: true });
+      backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+
+    // Section-nav active link tracking
+    const navLinks = document.querySelectorAll('.section-nav a');
+    const sections = Array.from(navLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    if (sections.length) {
+      const setCurrent = (id) => {
+        navLinks.forEach(a => a.classList.toggle('is-current', a.getAttribute('href') === '#' + id));
+      };
+      const navObserver = new IntersectionObserver((entries) => {
+        const visible = entries.filter(e => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible.length) setCurrent(visible[0].target.id);
+      }, { rootMargin: '-30% 0px -55% 0px', threshold: [0, 0.25, 0.5, 1] });
+      sections.forEach(s => navObserver.observe(s));
     }
   });
 })();
