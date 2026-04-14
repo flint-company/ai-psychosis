@@ -7,7 +7,7 @@
 <script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ----------------------------------------------------------
    PSYCHOSE IA · Style inspired by NYT long-form journalism
@@ -24,8 +24,8 @@
   --accent-dark: #7a0000;
   --paper: #ffffff;
   --serif-display: "Playfair Display", "Times New Roman", Georgia, serif;
-  --serif-text: "Source Serif Pro", Georgia, serif;
   --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --serif-text: var(--sans);
   --maxw: 1200px;
   --readw: 680px;
 }
@@ -36,8 +36,8 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--serif-text);
-  font-size: 18px;
+  font-family: var(--sans);
+  font-size: 17px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -58,26 +58,18 @@ strong { font-weight: 700; }
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 14px 32px;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 24px;
   font-family: var(--sans);
   font-size: 11px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-mute);
+  font-weight: 500;
 }
-.site-header__brand {
-  font-family: var(--serif-display);
-  font-weight: 900;
-  font-size: 20px;
-  letter-spacing: 0.14em;
-  color: var(--ink);
-  text-transform: uppercase;
-}
-.site-header__date { justify-self: start; }
-.site-header__section { justify-self: end; color: var(--accent); font-weight: 600; }
+.site-header__section { color: var(--accent); font-weight: 600; }
 
 /* -------- HERO -------- */
 .hero {
@@ -133,12 +125,13 @@ strong { font-weight: 700; }
 }
 @keyframes underline { to { transform: scaleX(1); } }
 .hero__deck {
-  font-family: var(--serif-text);
-  font-size: clamp(18px, 2vw, 22px);
+  font-family: var(--sans);
+  font-size: clamp(17px, 1.6vw, 20px);
   line-height: 1.55;
   max-width: 62ch;
   color: var(--ink-soft);
   margin: 0 0 30px;
+  font-weight: 400;
   opacity: 0;
   animation: fadeUp 1s ease .55s forwards;
 }
@@ -246,11 +239,13 @@ section {
 }
 .section-title em { font-style: italic; font-weight: 400; color: var(--ink-soft); }
 .section-deck {
-  font-size: 19px;
+  font-family: var(--sans);
+  font-size: 17px;
   line-height: 1.55;
   color: var(--ink-soft);
   max-width: 64ch;
   margin: 0 0 60px;
+  font-weight: 400;
 }
 
 /* -------- NUMBERS -------- */
@@ -281,11 +276,12 @@ section {
 }
 .stat--big .stat__value { color: var(--accent); }
 .stat__label {
-  font-family: var(--serif-text);
-  font-size: 19px;
-  line-height: 1.4;
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.45;
   color: var(--ink-soft);
   max-width: 40ch;
+  font-weight: 400;
 }
 .stat__source {
   font-family: var(--sans);
@@ -475,11 +471,13 @@ html.js .timeline.is-visible .tl-event { opacity: 1; transform: translateX(0); }
   letter-spacing: -0.01em;
 }
 .tl-event__body p {
-  font-size: 16px;
+  font-family: var(--sans);
+  font-size: 15px;
   line-height: 1.55;
   color: var(--ink-soft);
   margin: 0 0 12px;
   max-width: 60ch;
+  font-weight: 400;
 }
 .tl-event__source {
   font-family: var(--sans);
@@ -525,10 +523,12 @@ html.js .timeline.is-visible .tl-event { opacity: 1; transform: translateX(0); }
   letter-spacing: -0.01em;
 }
 .mech p {
-  font-size: 16px;
+  font-family: var(--sans);
+  font-size: 15px;
   line-height: 1.6;
   color: var(--ink-soft);
   margin: 0 0 20px;
+  font-weight: 400;
 }
 .mech__source {
   font-family: var(--sans);
@@ -606,10 +606,11 @@ html.js .timeline.is-visible .tl-event { opacity: 1; transform: translateX(0); }
   padding: 12px 0;
 }
 .bar-row__label {
-  font-family: var(--serif-text);
-  font-size: 16px;
+  font-family: var(--sans);
+  font-size: 15px;
   line-height: 1.4;
   color: var(--ink);
+  font-weight: 500;
 }
 .bar-row__track {
   height: 18px;
@@ -655,10 +656,11 @@ html.js .bar-row.is-visible .bar-row__fill { inset: 0 var(--inset, 100%) 0 0; }
   color: var(--accent);
 }
 .callout__text {
-  font-family: var(--serif-text);
-  font-size: 20px;
+  font-family: var(--sans);
+  font-size: 17px;
   line-height: 1.5;
   max-width: 50ch;
+  font-weight: 400;
 }
 
 /* -------- RESEARCH -------- */
@@ -697,10 +699,11 @@ html.js .bar-row.is-visible .bar-row__fill { inset: 0 var(--inset, 100%) 0 0; }
   border-bottom: 1px solid var(--rule);
 }
 .study__caption {
-  font-family: var(--serif-text);
+  font-family: var(--sans);
   font-size: 14px;
   line-height: 1.55;
   color: var(--ink-soft);
+  font-weight: 400;
 }
 
 /* -------- REGULATION -------- */
@@ -737,9 +740,11 @@ html.js .bar-row.is-visible .bar-row__fill { inset: 0 var(--inset, 100%) 0 0; }
   letter-spacing: -0.01em;
 }
 .reg-item__text {
-  font-size: 15px;
+  font-family: var(--sans);
+  font-size: 14px;
   line-height: 1.55;
   color: var(--ink-soft);
+  font-weight: 400;
 }
 
 /* -------- CONCLUSION -------- */
@@ -760,7 +765,7 @@ html.js .bar-row.is-visible .bar-row__fill { inset: 0 var(--inset, 100%) 0 0; }
   color: var(--accent);
   margin-bottom: 20px;
 }
-.concl p { font-size: 17px; line-height: 1.55; color: var(--ink); margin: 0; }
+.concl p { font-family: var(--sans); font-size: 16px; line-height: 1.55; color: var(--ink); margin: 0; font-weight: 400; }
 .concl__final {
   max-width: 72ch;
   margin: 40px auto 0;
@@ -857,6 +862,68 @@ html.js .bar-row.is-visible .bar-row__fill { inset: 0 var(--inset, 100%) 0 0; }
 .ref-num:hover { text-decoration: underline; }
 .voice__text .ref-num, .pullquote blockquote .ref-num { font-style: normal; }
 
+/* -------- AI CREDIT -------- */
+.ai-credit {
+  background: var(--bg-dark);
+  color: #e6e3da;
+  max-width: none;
+  padding: 80px 0;
+  margin: 0;
+}
+.ai-credit__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.ai-credit .section-label {
+  color: #d89a9a;
+  border-bottom-color: #d89a9a;
+}
+.ai-credit .section-title {
+  color: #f0eee8;
+  margin-bottom: 40px;
+}
+.ai-credit__grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px 48px;
+  border-top: 1px solid #333;
+  padding-top: 32px;
+}
+.ai-credit__label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #d89a9a;
+  padding-top: 2px;
+}
+.ai-credit__value {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: #e6e3da;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #2a2a2a;
+  font-weight: 400;
+}
+.ai-credit__value--placeholder {
+  color: #777;
+  font-style: italic;
+}
+.ai-credit__value pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: "SF Mono", "Monaco", "Menlo", Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.55;
+  background: rgba(255,255,255,0.03);
+  padding: 16px 20px;
+  border-left: 2px solid var(--accent);
+}
+
 /* -------- BIBLIOGRAPHY -------- */
 .bibliography { padding-bottom: 60px; }
 .bibliography__intro {
@@ -892,10 +959,11 @@ html.js .bar-row.is-visible .bar-row__fill { inset: 0 var(--inset, 100%) 0 0; }
   padding: 14px 0 14px 48px;
   border-top: 1px solid var(--rule);
   position: relative;
-  font-family: var(--serif-text);
-  font-size: 14px;
-  line-height: 1.5;
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.55;
   color: var(--ink-soft);
+  font-weight: 400;
   scroll-margin-top: 80px;
   transition: background .4s;
 }
@@ -956,6 +1024,8 @@ html:not(.js) .hero__hl::after { transform: scaleX(1) !important; animation: non
   .bar-row__value { text-align: left; }
   .pullquote blockquote { font-size: 26px; }
   .bib-list { grid-template-columns: 1fr; }
+  .ai-credit__grid { grid-template-columns: 1fr; gap: 8px 0; }
+  .ai-credit__label { padding-top: 12px; }
 }
 </style>
 </head>
@@ -963,9 +1033,8 @@ html:not(.js) .hero__hl::after { transform: scaleX(1) !important; animation: non
 
 <header class="site-header">
   <div class="site-header__inner">
-    <div class="site-header__date">Rapport documentaire vérifié · 13 avril 2026</div>
-    <div class="site-header__brand">THE DIGITAL OBSERVER</div>
-    <div class="site-header__section">Santé mentale · Enquête</div>
+    <div class="site-header__date">Rapport documentaire · 13 avril 2026</div>
+    <div class="site-header__section">Enquête · Santé mentale · Deep Research</div>
   </div>
 </header>
 
@@ -985,11 +1054,9 @@ html:not(.js) .hero__hl::after { transform: scaleX(1) !important; animation: non
     Au moins <strong>43 cas publiquement rapportés</strong>, dont <strong>plus de 15 décès confirmés</strong>.
   </p>
   <div class="hero__meta">
-    <span>Par la rédaction</span>
-    <span class="dot">·</span>
     <span>Temps de lecture : 12 min</span>
     <span class="dot">·</span>
-    <span>Sources : 37 études et rapports</span>
+    <span>39 sources · études, rapports, procédures</span>
   </div>
 
   <div class="hero__scroll">
@@ -1515,6 +1582,32 @@ html:not(.js) .hero__hl::after { transform: scaleX(1) !important; animation: non
 </section>
 
 </main>
+
+<!-- AI CREDIT -->
+<section class="ai-credit" id="ai-credit">
+  <div class="ai-credit__inner">
+    <div class="section-label">Conception</div>
+    <h2 class="section-title">Document généré par IA.</h2>
+    <div class="ai-credit__grid">
+
+      <div class="ai-credit__label">Modèle</div>
+      <div class="ai-credit__value ai-credit__value--placeholder">[À compléter — nom et version du modèle]</div>
+
+      <div class="ai-credit__label">Mode / Agent</div>
+      <div class="ai-credit__value ai-credit__value--placeholder">[À compléter — Deep Research, agent, etc.]</div>
+
+      <div class="ai-credit__label">Date de génération</div>
+      <div class="ai-credit__value ai-credit__value--placeholder">[À compléter]</div>
+
+      <div class="ai-credit__label">Prompt</div>
+      <div class="ai-credit__value ai-credit__value--placeholder"><pre>[À compléter — coller le prompt intégral ici]</pre></div>
+
+      <div class="ai-credit__label">Relecture humaine</div>
+      <div class="ai-credit__value ai-credit__value--placeholder">[À compléter — nom du ou des relecteurs, date de vérification des sources]</div>
+
+    </div>
+  </div>
+</section>
 
 <footer class="site-footer">
   <div class="site-footer__inner">
