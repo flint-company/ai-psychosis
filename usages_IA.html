@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Usages de l'IA générative — Ce que l'humain fait vraiment</title>
+<meta name="description" content="Cartographie descriptive des usages de l'IA générative en 2026 : douze classes, trois patterns structurels, cinq angles de lecture. Du Pentagone au grief bot, de l'IDE au co-parent algorithmique.">
+<meta name="author" content="Pierre Vannier — Flint">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="fr" href="https://glorious-christy-flint-org-9703408f.koyeb.app/usages_IA.html">
+<link rel="alternate" hreflang="en" href="https://glorious-christy-flint-org-9703408f.koyeb.app/AI_usages.html">
+<link rel="alternate" hreflang="x-default" href="https://glorious-christy-flint-org-9703408f.koyeb.app/usages_IA.html">
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Usages de l'IA générative — Ce que l'humain fait vraiment">
+<meta property="og:description" content="Cartographie en douze classes, trois patterns, cinq angles. Au-delà du récit vendeur : shadow-AI, grief bots, co-parents algorithmiques, contre-usages.">
+<meta property="og:url" content="https://glorious-christy-flint-org-9703408f.koyeb.app/usages_IA.html">
+<meta property="og:site_name" content="Flint · Cartographie descriptive">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Usages de l'IA générative — Ce que l'humain fait vraiment">
+<meta name="twitter:description" content="Douze classes, trois patterns, cinq infographies. Ce que les humains font réellement avec l'IA générative, par-delà ce que les vendeurs ont promis.">
+<!-- Favicon inline SVG, noir et beige (palette usages IA) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f5f2ec'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%230a0a0a' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='%230a0a0a'/%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ----------------------------------------------------------
+   USAGES DE L'IA · Style éditorial noir & beige
+   Cohérent avec le dossier d'infographies AI usages 2026
+   ---------------------------------------------------------- */
+:root {
+  --bg: #f5f2ec;
+  --ink: #0a0a0a;
+  --ink-2: #1a1a1a;
+  --ink-soft: #3a3a3a;
+  --ink-mute: #595959;
+  --rule: #cac5b8;
+  --shade: #ebe7db;
+  --shade-deep: #dcd6c6;
+  --accent: #0a0a0a;
+  --paper: #fefdfa;
+  --serif-display: 'Fraunces', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --maxw: 1200px;
+  --readw: 720px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+em { font-style: italic; }
+strong { font-weight: 700; }
+
+/* -------- HEADER -------- */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(245, 242, 236, 0.94);
+}
+.site-header__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 14px 32px;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 24px;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 600;
+}
+.site-header__brand { color: var(--ink); }
+.site-header__brand em {
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: 14px;
+  margin-left: 6px;
+  color: var(--ink-mute);
+}
+.site-header__cross {
+  color: var(--ink-mute);
+  text-decoration: none;
+  transition: color .2s;
+}
+.site-header__cross:hover { color: var(--ink); }
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid var(--rule);
+  overflow: hidden;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.lang-switch__current, .lang-switch__alt {
+  padding: 6px 10px;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1;
+}
+.lang-switch__current { background: var(--ink); color: var(--bg); }
+.lang-switch__alt { color: var(--ink-mute); background: transparent; transition: background .2s, color .2s; }
+.lang-switch__alt:hover { background: var(--ink); color: var(--bg); }
+@media (max-width: 780px) {
+  .site-header__inner { grid-template-columns: 1fr auto; gap: 10px; }
+  .site-header__cross { grid-column: 1 / -1; text-align: center; }
+}
+
+/* -------- DISCLOSURE -------- */
+.disclosure {
+  background: var(--shade);
+  border-bottom: 1px solid var(--rule);
+  border-top: 2px solid var(--ink);
+}
+.disclosure__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 20px 32px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 24px;
+  align-items: center;
+}
+.disclosure__badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding: 6px 12px;
+  border: 1px solid var(--ink);
+  white-space: nowrap;
+}
+.disclosure__text {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 80ch;
+}
+.disclosure__text strong { color: var(--ink); font-weight: 700; }
+.disclosure__link {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 10px 16px;
+  border: 1px solid var(--ink);
+  white-space: nowrap;
+  transition: background .2s, color .2s;
+}
+.disclosure__link:hover { background: var(--ink); color: var(--bg); }
+@media (max-width: 900px) {
+  .disclosure__inner { grid-template-columns: 1fr; gap: 14px; padding: 18px 24px; }
+  .disclosure__badge, .disclosure__link { justify-self: start; }
+}
+
+/* -------- SECTION NAV -------- */
+.section-nav {
+  position: sticky;
+  top: 46px;
+  z-index: 45;
+  background: rgba(245, 242, 236, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+  padding: 8px 0;
+}
+.section-nav__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  gap: 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.section-nav__inner::-webkit-scrollbar { display: none; }
+.section-nav a {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  text-decoration: none;
+  padding: 7px 13px;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: color .2s, background .2s;
+}
+.section-nav a:hover { color: var(--ink); background: rgba(10,10,10,0.05); }
+.section-nav a.is-current { color: var(--bg); background: var(--ink); }
+
+/* -------- BACK TO TOP -------- */
+.back-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--bg);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s, transform .3s;
+  z-index: 100;
+  font-family: var(--sans);
+  font-size: 18px;
+  line-height: 1;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.back-top.is-visible { opacity: 1; pointer-events: auto; }
+.back-top:hover { background: var(--ink-mute); transform: translateY(-3px); }
+
+/* -------- SECTIONS GÉNÉRIQUES -------- */
+section {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 90px 32px;
+  position: relative;
+}
+.section-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.section-label::before {
+  content: ""; display: inline-block; width: 44px; height: 1px; background: var(--ink);
+}
+.section-title {
+  font-family: var(--serif-display);
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  font-weight: 400;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 24px;
+  max-width: 18ch;
+}
+.section-title em { font-style: italic; font-weight: 300; color: var(--ink-mute); }
+.section-deck {
+  font-family: var(--sans);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 62ch;
+  margin: 0 0 40px;
+}
+.section-deck b { color: var(--ink); font-weight: 600; }
+
+/* -------- HERO -------- */
+.hero {
+  position: relative;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 80px 32px 100px;
+  overflow: hidden;
+}
+.hero__kicker {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 28px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.hero__kicker::before {
+  content: ""; display: inline-block; width: 44px; height: 1px; background: var(--ink);
+}
+.hero__title {
+  font-family: var(--serif-display);
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  font-weight: 400;
+  font-size: clamp(48px, 8vw, 112px);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  margin: 0 0 32px;
+  max-width: 17ch;
+}
+.hero__title em { font-weight: 300; font-style: italic; color: var(--ink-mute); }
+.hero__deck {
+  font-family: var(--sans);
+  font-size: clamp(17px, 1.5vw, 20px);
+  line-height: 1.55;
+  max-width: 62ch;
+  color: var(--ink-soft);
+  margin: 0 0 20px;
+}
+.hero__deck b { color: var(--ink); font-weight: 600; }
+.hero__meta {
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid var(--ink);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+.hero__meta b { color: var(--ink); font-weight: 700; margin-right: 6px; }
+
+/* -------- NUMBERS / STATS -------- */
+.numbers__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  margin-top: 40px;
+  border: 1px solid var(--rule);
+}
+.stat {
+  padding: 48px 36px;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: background .3s;
+}
+.stat:hover { background: var(--paper); }
+.stat--big { grid-column: span 2; }
+.stat__value {
+  font-family: var(--serif-display);
+  font-variation-settings: "opsz" 144;
+  font-weight: 300;
+  font-size: clamp(56px, 9vw, 128px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+.stat__label {
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 42ch;
+  font-weight: 400;
+}
+.stat__label b { color: var(--ink); font-weight: 600; }
+.stat__source {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+}
+
+/* -------- PULLQUOTE -------- */
+.pullquote {
+  padding: 100px 32px;
+  margin: 0;
+  text-align: center;
+  max-width: none;
+  background: var(--ink);
+  color: var(--bg);
+}
+.pullquote blockquote {
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(28px, 4vw, 52px);
+  line-height: 1.22;
+  max-width: 22ch;
+  margin: 0 auto 28px;
+  letter-spacing: -0.015em;
+  color: var(--bg);
+}
+.pullquote blockquote::before,
+.pullquote blockquote::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--bg);
+  margin: 24px auto;
+}
+.pullquote cite {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #bfb8a6;
+  font-style: normal;
+}
+
+/* -------- INFOGRAPHIC EMBED -------- */
+.infographic {
+  margin-top: 48px;
+  padding: 28px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+}
+.infographic__label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 16px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.infographic__label b { color: var(--ink); font-weight: 700; }
+.infographic__label a {
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid var(--ink);
+  padding: 6px 10px;
+  transition: background .2s, color .2s;
+}
+.infographic__label a:hover { background: var(--ink); color: var(--bg); }
+.infographic img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+}
+
+/* -------- 12 CLASSES GRID -------- */
+.classes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  margin-top: 40px;
+  border: 1px solid var(--rule);
+}
+.class-cell {
+  background: var(--bg);
+  padding: 22px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: background .2s;
+}
+.class-cell:hover { background: var(--paper); }
+.class-cell__num {
+  font-family: var(--serif-display);
+  font-variation-settings: "opsz" 144;
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.class-cell__tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--ink);
+  padding: 3px 8px;
+  align-self: flex-start;
+  font-weight: 600;
+}
+.class-cell__title {
+  font-family: var(--serif-display);
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 2px 0 4px;
+}
+.class-cell__title em { font-style: italic; color: var(--ink-mute); font-weight: 300; }
+.class-cell__desc {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.class-cell__stat {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px dashed var(--rule);
+  font-weight: 600;
+}
+
+/* -------- DIALECTIC ROWS -------- */
+.dialectic {
+  display: grid;
+  grid-template-columns: 1fr 90px 1fr;
+  gap: 0;
+  margin-top: 40px;
+  border: 1px solid var(--rule);
+}
+.dialectic__row {
+  display: contents;
+}
+.dialectic__inst, .dialectic__citz, .dialectic__vs {
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--rule);
+}
+.dialectic__inst { background: var(--shade-deep); border-right: 1px solid var(--rule); }
+.dialectic__citz { background: var(--bg); }
+.dialectic__vs {
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--rule);
+  text-align: center;
+}
+.dialectic__vs .big {
+  font-family: var(--serif-display);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.dialectic__vs .cap {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-top: 4px;
+}
+.dialectic h4 {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin: 0 0 8px;
+}
+.dialectic__title {
+  font-family: var(--serif-display);
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+.dialectic__title em { font-style: italic; color: var(--ink-mute); font-weight: 300; }
+.dialectic__desc {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.dialectic__desc b { color: var(--ink); font-weight: 600; }
+
+/* -------- TIMELINE (événements clés) -------- */
+.timeline__track { position: relative; margin-top: 48px; padding-left: 44px; }
+.timeline__line {
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--ink);
+}
+.tl-event {
+  position: relative;
+  padding: 0 0 44px 28px;
+}
+.tl-event__dot {
+  position: absolute;
+  left: -37px;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 2px solid var(--bg);
+  outline: 2px solid var(--ink);
+}
+.tl-event__dot.ring { background: var(--bg); outline: 3px solid var(--ink); }
+.tl-event__dot.cross { background: transparent; outline: none; border: none; }
+.tl-event__dot.cross::before, .tl-event__dot.cross::after {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 20px; height: 3px; background: var(--ink);
+  transform-origin: center;
+}
+.tl-event__dot.cross::before { transform: translate(-50%, -50%) rotate(45deg); }
+.tl-event__dot.cross::after  { transform: translate(-50%, -50%) rotate(-45deg); }
+.tl-event__date {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.tl-event__body h3 {
+  font-family: var(--serif-display);
+  font-weight: 500;
+  font-size: 24px;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+.tl-event__body h3 em { font-style: italic; color: var(--ink-mute); font-weight: 400; }
+.tl-event__body p {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 64ch;
+}
+.tl-event__body p b { color: var(--ink); font-weight: 600; }
+
+/* -------- SPECTRE (sept stations) -------- */
+.spectre {
+  margin-top: 44px;
+}
+.spectre__bar {
+  height: 22px;
+  background: linear-gradient(to right, #0a0a0a 0%, #2a2a2a 15%, #595959 35%, #8a8a8a 55%, #c0bbae 72%, #e0dcd0 85%, #f5f2ec 100%);
+  border: 1px solid var(--ink);
+  position: relative;
+  margin-bottom: 44px;
+}
+.spectre__bar .tick {
+  position: absolute;
+  top: -6px;
+  width: 1px;
+  height: 34px;
+  background: var(--ink);
+}
+.spectre__bar .tick span {
+  position: absolute;
+  top: 38px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.spectre__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  margin-top: 56px;
+}
+.station {
+  background: var(--bg);
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.station__zone {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--ink);
+  padding: 4px 8px;
+  align-self: flex-start;
+  font-weight: 600;
+}
+.station__title {
+  font-family: var(--serif-display);
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 4px 0 2px;
+}
+.station__title em { font-style: italic; color: var(--ink-mute); font-weight: 300; }
+.station__stat {
+  font-family: var(--serif-display);
+  font-variation-settings: "opsz" 144;
+  font-weight: 300;
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-top: 6px;
+}
+.station__cap {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  line-height: 1.4;
+}
+
+/* -------- PATTERNS (3 mech-style cards) -------- */
+.patterns-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  margin-top: 40px;
+  border: 1px solid var(--rule);
+}
+.pattern {
+  background: var(--bg);
+  padding: 36px 32px 40px;
+  transition: background .3s;
+  display: flex;
+  flex-direction: column;
+}
+.pattern:hover { background: var(--paper); }
+.pattern__num {
+  font-family: var(--serif-display);
+  font-size: 42px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 20px;
+  opacity: 0.75;
+  letter-spacing: -0.02em;
+}
+.pattern h3 {
+  font-family: var(--serif-display);
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.15;
+  margin: 0 0 14px;
+  letter-spacing: -0.01em;
+}
+.pattern p {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0 0 18px;
+  flex-grow: 1;
+}
+.pattern p b { color: var(--ink); font-weight: 600; }
+.pattern__source {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+}
+
+/* -------- CONCLUSION -------- */
+.conclusion {
+  background: var(--shade);
+  max-width: none;
+  padding: 90px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.conclusion__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.conclusion__text {
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(22px, 2.5vw, 34px);
+  line-height: 1.3;
+  color: var(--ink-soft);
+  max-width: 26ch;
+  margin: 0 0 30px;
+  letter-spacing: -0.01em;
+}
+.conclusion__text b { color: var(--ink); font-style: normal; font-weight: 500; }
+
+/* -------- AI CREDIT -------- */
+.ai-credit {
+  background: var(--ink);
+  color: #e5e1d5;
+  max-width: none;
+  padding: 80px 0;
+}
+.ai-credit__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.ai-credit .section-label { color: #e5e1d5; }
+.ai-credit .section-label::before { background: #e5e1d5; }
+.ai-credit .section-title { color: #fefdfa; }
+.ai-credit .section-title em { color: #b0aa99; }
+.ai-credit__grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 24px 40px;
+  margin-top: 36px;
+}
+.ai-credit__label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #b0aa99;
+  padding-top: 4px;
+  font-weight: 700;
+}
+.ai-credit__value {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: #e5e1d5;
+  border-bottom: 1px solid #33312b;
+  padding-bottom: 20px;
+  margin-bottom: 4px;
+}
+.ai-credit__value strong { color: #fefdfa; font-weight: 600; }
+.ai-credit__grid > div:nth-last-child(-n+2) { border-bottom: none; padding-bottom: 0; }
+
+/* -------- BYLINE -------- */
+.byline {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 80px 32px 40px;
+}
+.byline__inner {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--ink);
+  padding: 40px 44px;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+.byline__avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif-display);
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: -0.02em;
+}
+.byline__label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 8px;
+}
+.byline__name {
+  font-family: var(--serif-display);
+  font-weight: 600;
+  font-size: 26px;
+  letter-spacing: -0.01em;
+  margin: 0 0 4px;
+}
+.byline__title {
+  font-family: var(--sans);
+  font-size: 15px;
+  color: var(--ink-soft);
+  margin-bottom: 14px;
+}
+.byline__links { display: flex; gap: 14px; flex-wrap: wrap; font-family: var(--sans); font-size: 13px; }
+.byline__links a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  transition: border-color .2s;
+}
+.byline__links a:hover { border-color: var(--ink); }
+.byline__bio {
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-mute);
+  font-style: italic;
+}
+
+/* -------- FOOTER -------- */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: 40px 0;
+}
+.site-footer__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--ink-mute);
+}
+.site-footer__block .site-footer__label {
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.site-footer__copyright {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+  margin-top: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+/* -------- PRINT -------- */
+@media print {
+  body { background: #fff; color: #000; font-size: 12pt; }
+  .site-header, .disclosure, .section-nav, .back-top, .site-footer { display: none !important; }
+  section { padding: 20px 0; page-break-inside: avoid; max-width: 100%; }
+  .pullquote, .ai-credit, .conclusion { background: #fff !important; color: #000 !important; }
+  .pullquote blockquote, .ai-credit__value, .conclusion__text { color: #000 !important; }
+  a { color: #000; text-decoration: none; }
+  .infographic img { border: 1px solid #000; }
+}
+
+/* -------- RESPONSIVE -------- */
+@media (max-width: 980px) {
+  .numbers__grid { grid-template-columns: 1fr; }
+  .stat--big { grid-column: auto; }
+  .classes-grid { grid-template-columns: 1fr 1fr; }
+  .patterns-grid { grid-template-columns: 1fr; }
+  .spectre__grid { grid-template-columns: repeat(2, 1fr); }
+  .spectre__bar { display: none; }
+  .dialectic { grid-template-columns: 1fr; }
+  .dialectic__inst, .dialectic__citz, .dialectic__vs { border-right: none; }
+  .dialectic__vs { padding: 12px; }
+  .site-footer__inner { grid-template-columns: 1fr; }
+  .ai-credit__grid { grid-template-columns: 1fr; gap: 6px 0; }
+  .ai-credit__label { padding-top: 12px; }
+  .byline__inner { grid-template-columns: 1fr; text-align: left; padding: 28px 24px; }
+}
+@media (max-width: 640px) {
+  section { padding: 60px 24px; }
+  .hero { padding: 50px 24px 70px; }
+  .classes-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Sticky header with cross-link and language switch -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <div class="site-header__brand">AI usages <em>· édition 2026</em></div>
+    <a class="site-header__cross" href="index.html" title="Dossier Psychose IA">← Dossier Psychose IA</a>
+    <div class="lang-switch" role="group" aria-label="Langue">
+      <span class="lang-switch__current" aria-current="true">FR</span>
+      <a class="lang-switch__alt" href="AI_usages.html" hreflang="en" lang="en">EN</a>
+    </div>
+  </div>
+</header>
+
+<!-- Disclosure editorial banner -->
+<aside class="disclosure" role="note" aria-label="Disclosure éditoriale">
+  <div class="disclosure__inner">
+    <div class="disclosure__badge">Disclosure éditoriale</div>
+    <p class="disclosure__text">
+      Ce dossier de cartographie descriptive a été produit avec l'assistance d'une intelligence
+      artificielle (<strong>Claude Opus 4.7</strong>, en modes Research et Web Search), puis soumis
+      à une vérification factuelle contre les sources primaires. L'IA a servi d'outil de
+      <strong>documentation, de synthèse et de mise en forme visuelle</strong> — pas de source
+      autonome ni d'autorité scientifique.
+    </p>
+    <a class="disclosure__link" href="#methode">Méthode documentée ↓</a>
+  </div>
+</aside>
+
+<!-- Sticky section nav -->
+<nav class="section-nav" aria-label="Sommaire du dossier">
+  <div class="section-nav__inner">
+    <a href="#echelle">I · Échelle</a>
+    <a href="#classes">II · 12 classes</a>
+    <a href="#iceberg">III · Iceberg</a>
+    <a href="#dialectique">IV · Dialectique</a>
+    <a href="#timeline">V · Chronologie</a>
+    <a href="#spectre">VI · Spectre</a>
+    <a href="#patterns">VII · Patterns</a>
+    <a href="#conclusion">Conclusion</a>
+    <a href="#methode">Méthode</a>
+  </div>
+</nav>
+
+<button class="back-top" id="backTop" aria-label="Retour en haut">↑</button>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__kicker">Cartographie descriptive — édition 2026</div>
+    <h1 class="hero__title">
+      Ce que l'humain fait<br>
+      <em>vraiment</em> avec<br>
+      l'IA générative.
+    </h1>
+    <p class="hero__deck">
+      Les vendeurs parlent de productivité. Les usagers, eux, <b>pleurent leurs morts</b>, consolent
+      leurs enfants, répètent des excuses à leur conjoint — et écrivent leur propre lettre de Big
+      Law à leur propriétaire. Ce dossier cartographie, par-delà le récit marketing, ce que les
+      humains font réellement avec l'IA générative entre 2023 et 2026.
+    </p>
+    <p class="hero__deck">
+      Une seule technologie, <b>douze classes d'usage</b>, <b>sept stations</b> de l'impersonnel
+      à l'intime, <b>seize moments clés</b>, et <b>trois patterns structurels</b> qui reviennent
+      partout : l'émotionnel bat le productif ; chaque déploiement engendre son contre-déploiement ;
+      l'écart entre vitrine et pratique est immense.
+    </p>
+    <div class="hero__meta">
+      <span><b>12</b> classes</span>
+      <span><b>7</b> stations</span>
+      <span><b>16</b> moments clés</span>
+      <span><b>3</b> patterns</span>
+      <span>Période <b>2023 — 2026</b></span>
+    </div>
+  </section>
+
+  <!-- I — ÉCHELLE -->
+  <section id="echelle">
+    <div class="section-label">I · L'échelle du phénomène</div>
+    <h2 class="section-title">Quelques nombres, <em>un nouveau régime.</em></h2>
+    <p class="section-deck">
+      L'IA générative n'est plus en phase de déploiement : elle est <b>absorbée dans pratiquement
+      tous les domaines de l'activité humaine</b> — et réappropriée de manières que ses créateurs
+      n'avaient pas anticipées. Quatre chiffres cadrent l'ampleur du phénomène.
+    </p>
+
+    <div class="numbers__grid">
+      <div class="stat">
+        <div class="stat__value">75%</div>
+        <div class="stat__label">des <b>knowledge workers</b> utilisent l'IA générative dans leur travail quotidien.</div>
+        <div class="stat__source">McKinsey · Microsoft Work Trend Index 2025</div>
+      </div>
+      <div class="stat">
+        <div class="stat__value">84%</div>
+        <div class="stat__label">des <b>développeurs</b> utilisent des outils IA de codage en 2024–25.</div>
+        <div class="stat__source">Stack Overflow Developer Survey 2025</div>
+      </div>
+      <div class="stat stat--big">
+        <div class="stat__value">64%</div>
+        <div class="stat__label">des <b>adolescents américains</b> (13–17 ans) utilisent des chatbots IA. <b>55 %</b> des 18–24 ans disent préférer parler santé mentale avec une IA qu'avec un humain.</div>
+        <div class="stat__source">Pew Research 2025 · APA MyFuturely 2025</div>
+      </div>
+      <div class="stat">
+        <div class="stat__value">82%</div>
+        <div class="stat__label">des usages IA en entreprise se font <b>hors du cadre autorisé</b> (shadow-AI).</div>
+        <div class="stat__source">Menlo Security · LayerX 2025</div>
+      </div>
+      <div class="stat">
+        <div class="stat__value">50%+</div>
+        <div class="stat__label">du <b>contenu web</b> est désormais IA-généré. La slop economy sature les feeds.</div>
+        <div class="stat__source">Estimations indépendantes 2025</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE 1 -->
+  <section class="pullquote">
+    <blockquote>
+      « Les usages les plus signifiants ne sont pas productifs. Ils sont <em>émotionnels</em>. »
+    </blockquote>
+    <cite>Pattern structurel #1 · Synthèse qualitative (227 fils documentés)</cite>
+  </section>
+
+  <!-- II — 12 CLASSES -->
+  <section id="classes">
+    <div class="section-label">II · Cartographie en douze classes</div>
+    <h2 class="section-title">Du professionnel à <em>l'intime</em>, du productif <em>au subversif.</em></h2>
+    <p class="section-deck">
+      Une typologie complète des usages réels, répartis entre <b>institutionnel</b>, <b>technique</b>,
+      <b>scientifique</b>, <b>régulé</b>, <b>pédagogique</b>, <b>culturel</b>, <b>intime</b>,
+      <b>adverse</b>, <b>vernaculaire</b>, <b>critique</b> et <b>subversif</b>. Chaque classe a son
+      registre, son chiffre-clé, ses acteurs concrets.
+    </p>
+
+    <figure class="infographic">
+      <div class="infographic__label"><b>Infographie 01 / 05</b> — Poster A2 · 12 classes d'usage<a href="infographies/01-poster-12-classes.png" target="_blank">Voir en plein écran ↗</a></div>
+      <img src="infographies/01-poster-12-classes.png" alt="Cartographie des 12 classes d'usage de l'IA générative" loading="lazy">
+    </figure>
+
+    <div class="classes-grid">
+      <div class="class-cell">
+        <div class="class-cell__num">01</div>
+        <div class="class-cell__tag">Institutionnel</div>
+        <h4 class="class-cell__title">Productivité <em>&amp; Shadow-AI</em></h4>
+        <p class="class-cell__desc">L'adoption clandestine dépasse les déploiements officiels.</p>
+        <div class="class-cell__stat">75 % workers · 82 % non-autorisés</div>
+      </div>
+      <div class="class-cell">
+        <div class="class-cell__num">02</div>
+        <div class="class-cell__tag">Technique</div>
+        <h4 class="class-cell__title">Ingénierie <em>logicielle</em></h4>
+        <p class="class-cell__desc">Du copilote IDE à l'agent autonome.</p>
+        <div class="class-cell__stat">84 % devs · 46 % code IA-produit</div>
+      </div>
+      <div class="class-cell">
+        <div class="class-cell__num">03</div>
+        <div class="class-cell__tag">Scientifique</div>
+        <h4 class="class-cell__title">Recherche <em>scientifique</em></h4>
+        <p class="class-cell__desc">AlphaFold 3, GNoME — et paper-mills.</p>
+        <div class="class-cell__stat">14 % abstracts biomed suspects</div>
+      </div>
+      <div class="class-cell">
+        <div class="class-cell__num">04</div>
+        <div class="class-cell__tag">Régulé</div>
+        <h4 class="class-cell__title">Santé <em>clinique</em></h4>
+        <p class="class-cell__desc">Scribes ambiants, diagnostic augmenté, FDA.</p>
+        <div class="class-cell__stat">400+ dispositifs FDA autorisés</div>
+      </div>
+      <div class="class-cell">
+        <div class="class-cell__num">05</div>
+        <div class="class-cell__tag">Pédagogique</div>
+        <h4 class="class-cell__title">Éducation <em>&amp; détection</em></h4>
+        <p class="class-cell__desc">Humanizers vs Turnitin. Course aux armements.</p>
+        <div class="class-cell__stat">64 % ados US · Khanmigo 700 k</div>
+      </div>
+      <div class="class-cell">
+        <div class="class-cell__num">06</div>
+        <div class="class-cell__tag">Culturel</div>
+        <h4 class="class-cell__title">Arts <em>&amp; slop economy</em></h4>
+        <p class="class-cell__desc">Plus de 50 % du web est IA-généré.</p>
+        <div class="class-cell__stat">Suno 500 M $ · Sora · Midjourney</div>
+      </div>
+      <div class="class-cell">
+        <div class="class-cell__num">07</div>
+        <div class="class-cell__tag">Intime</div>
+        <h4 class="class-cell__title">Émotionnel <em>&amp; relationnel</em></h4>
+        <p class="class-cell__desc">Compagnons, grief bots, médiation conjugale.</p>
+        <div class="class-cell__stat">40 M+ utilisateurs mental-health</div>
+      </div>
+      <div class="class-cell">
+        <div class="class-cell__num">08</div>
+        <div class="class-cell__tag">Institutionnel</div>
+        <h4 class="class-cell__title">Droit · Finance <em>· Défense</em></h4>
+        <p class="class-cell__desc">Wall Street, Pentagone, tribunaux : IA agentique.</p>
+        <div class="class-cell__stat">Pentagone 3 M utilisateurs</div>
+      </div>
+      <div class="class-cell">
+        <div class="class-cell__num">09</div>
+        <div class="class-cell__tag">Adverse</div>
+        <h4 class="class-cell__title">Usages <em>adverses</em></h4>
+        <p class="class-cell__desc">Deepfakes, fraudes, prompt injections.</p>
+        <div class="class-cell__stat">Arup 25,6 M $ · Swift 47 M vues</div>
+      </div>
+      <div class="class-cell">
+        <div class="class-cell__num">10</div>
+        <div class="class-cell__tag">Vernaculaire</div>
+        <h4 class="class-cell__title">Accessibilité <em>&amp; Sud global</em></h4>
+        <p class="class-cell__desc">Langues à faibles ressources, aveugles et sourds.</p>
+        <div class="class-cell__stat">Be My Eyes 253 M · AI4Bharat 22 L</div>
+      </div>
+      <div class="class-cell">
+        <div class="class-cell__num">11</div>
+        <div class="class-cell__tag">Critique</div>
+        <h4 class="class-cell__title">Journalisme <em>&amp; OSINT</em></h4>
+        <p class="class-cell__desc">Rappler, Bellingcat, vérification de désinformation.</p>
+        <div class="class-cell__stat">2 / 15 Pulitzer 2024 IA-assistés</div>
+      </div>
+      <div class="class-cell">
+        <div class="class-cell__num">12</div>
+        <div class="class-cell__tag">Subversif</div>
+        <h4 class="class-cell__title">Détournements <em>émergents</em></h4>
+        <p class="class-cell__desc">DefendMyRent, Counterforce, jailbreaks.</p>
+        <div class="class-cell__stat">80 % refus assurance inversés</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- III — ICEBERG -->
+  <section id="iceberg">
+    <div class="section-label">III · L'iceberg de l'IA générative</div>
+    <h2 class="section-title">20 % émergé, <em>80 % immergé.</em></h2>
+    <p class="section-deck">
+      Les vendeurs parlent de <b>productivité, code, diagnostic, recherche</b> : c'est la partie
+      émergée de l'iceberg, celle que l'on présente en conférence. Sous la ligne de flottaison se
+      trouve l'essentiel : <b>shadow-AI, compagnons émotionnels, thérapie, médiation conjugale,
+      contre-usages juridiques, déguisements d'interface, grief bots</b>. Plus on descend, plus on
+      sort du récit vendeur ; plus on sort du récit vendeur, plus on se rapproche de ce qu'est
+      vraiment cette technologie pour les humains.
+    </p>
+
+    <figure class="infographic">
+      <div class="infographic__label"><b>Infographie 02 / 05</b> — L'iceberg de l'IA générative<a href="infographies/02-iceberg.png" target="_blank">Voir en plein écran ↗</a></div>
+      <img src="infographies/02-iceberg.png" alt="Iceberg — 20% émergé vs 80% immergé" loading="lazy">
+    </figure>
+  </section>
+
+  <!-- IV — DIALECTIQUE -->
+  <section id="dialectique">
+    <div class="section-label">IV · La dialectique institutionnelle</div>
+    <h2 class="section-title">Chaque déploiement engendre <em>son contre-déploiement.</em></h2>
+    <p class="section-deck">
+      Partout où l'IA est déployée depuis le haut — par <b>assureurs, écoles, RH, avocats,
+      entreprises, armées</b> — les usagers déploient leur propre IA depuis le bas. La même
+      technologie <b>amplifie les asymétries de pouvoir</b> et fournit simultanément l'instrument
+      pour les contester. Huit confrontations structurantes :
+    </p>
+
+    <figure class="infographic">
+      <div class="infographic__label"><b>Infographie 03 / 05</b> — La dialectique institutionnelle<a href="infographies/03-dialectique.png" target="_blank">Voir en plein écran ↗</a></div>
+      <img src="infographies/03-dialectique.png" alt="Dialectique institutionnelle — 8 confrontations" loading="lazy">
+    </figure>
+
+    <div class="dialectic">
+      <div class="dialectic__row">
+        <div class="dialectic__inst">
+          <h4>Santé · Assureurs</h4>
+          <div class="dialectic__title">Refusent les soins <em>par IA</em></div>
+          <p class="dialectic__desc"><b>Premera, UnitedHealth</b> rejettent des dizaines de milliers de demandes via algorithme.</p>
+        </div>
+        <div class="dialectic__vs">
+          <div class="big">64-80 %</div>
+          <div class="cap">refus<br>inversés</div>
+        </div>
+        <div class="dialectic__citz">
+          <h4>Patients · Counterforce Health</h4>
+          <div class="dialectic__title">Génèrent <em>des lettres d'appel</em></div>
+          <p class="dialectic__desc"><b>Stéphanie Nixdorf</b> produit 23 pages de prose médicale IA-rédigée ; FDA approval deux jours plus tard.</p>
+        </div>
+      </div>
+      <div class="dialectic__row">
+        <div class="dialectic__inst">
+          <h4>Entreprise · DSI &amp; sécurité</h4>
+          <div class="dialectic__title">Bannissent <em>l'IA générative</em></div>
+          <p class="dialectic__desc">Samsung ban 2023 ; CISA utilise ChatGPT depuis un ordinateur temporaire.</p>
+        </div>
+        <div class="dialectic__vs">
+          <div class="big">82 %</div>
+          <div class="cap">collages<br>hors contrôle</div>
+        </div>
+        <div class="dialectic__citz">
+          <h4>Employés · LayerX, Amplifier</h4>
+          <div class="dialectic__title">Shadow-AI <em>par comptes perso</em></div>
+          <p class="dialectic__desc"><b>45 %</b> des employés utilisent l'IA ; <b>82 %</b> des collages viennent de comptes non-managés.</p>
+        </div>
+      </div>
+      <div class="dialectic__row">
+        <div class="dialectic__inst">
+          <h4>Logement · Propriétaires</h4>
+          <div class="dialectic__title">Menacent <em>par demandes formelles</em></div>
+          <p class="dialectic__desc">Lettres d'expulsion et mises en demeure rédigées par des cabinets d'avocats onéreux.</p>
+        </div>
+        <div class="dialectic__vs">
+          <div class="big">~80 %</div>
+          <div class="cap">taux de<br>réponse</div>
+        </div>
+        <div class="dialectic__citz">
+          <h4>Locataires · DefendMyRent</h4>
+          <div class="dialectic__title">Génèrent <em>leur réponse légale</em></div>
+          <p class="dialectic__desc">Les avocats reconnaissent la prose ChatGPT : <em>« wanted to sound like Big Law. »</em></p>
+        </div>
+      </div>
+      <div class="dialectic__row">
+        <div class="dialectic__inst">
+          <h4>Éducation · Turnitin, GPTZero</h4>
+          <div class="dialectic__title">Déploient <em>la détection IA</em></div>
+          <p class="dialectic__desc"><b>60 %</b> des étudiants anglophones non-natifs plus à risque de faux positifs.</p>
+        </div>
+        <div class="dialectic__vs">
+          <div class="big">54 %</div>
+          <div class="cap">étudiants<br>IA-actifs</div>
+        </div>
+        <div class="dialectic__citz">
+          <h4>Étudiants · humanizers 20 $/mois</h4>
+          <div class="dialectic__title">Contournent <em>la détection</em></div>
+          <p class="dialectic__desc">Alisa Ostovitz, 17 ans, faussement accusée <b>trois fois</b> par Turnitin (NPR).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- V — TIMELINE -->
+  <section id="timeline">
+    <div class="section-label">V · Chronologie — 36 mois</div>
+    <h2 class="section-title">Les moments <em>qui ont basculé.</em></h2>
+    <p class="section-deck">
+      De la première interdiction Samsung (avril 2023) aux co-parents algorithmiques de Sam Altman
+      (2026) : <b>seize moments</b> — techniques, juridiques, tragiques, culturels — qui ont fait
+      basculer l'usage de l'IA générative en dehors du récit vendeur.
+    </p>
+
+    <figure class="infographic">
+      <div class="infographic__label"><b>Infographie 04 / 05</b> — Timeline 2023–2026<a href="infographies/04-timeline.png" target="_blank">Voir en plein écran ↗</a></div>
+      <img src="infographies/04-timeline.png" alt="Timeline 2023-2026 des moments-clés" loading="lazy">
+    </figure>
+
+    <div class="timeline__track">
+      <div class="timeline__line"></div>
+      <article class="tl-event">
+        <div class="tl-event__dot"></div>
+        <div class="tl-event__date">Avril 2023 · Séoul</div>
+        <div class="tl-event__body">
+          <h3>Samsung <em>interdit ChatGPT</em></h3>
+          <p>Vingt jours après la levée du ban, trois incidents de fuite (code source, données, transcript de meeting). L'ordre se répandra aux banques, hôpitaux, gouvernements. <b>Naissance officielle du shadow-AI.</b></p>
+        </div>
+      </article>
+      <article class="tl-event">
+        <div class="tl-event__dot cross"></div>
+        <div class="tl-event__date">Janvier 2024 · Hong Kong</div>
+        <div class="tl-event__body">
+          <h3>Arup — <em>25,6 M $ envolés par deepfake</em></h3>
+          <p>Un ingénieur financier exécute 15 virements après une visio où <b>tous les participants — CFO compris — sont deepfakés</b>. LinkedIn pour enrôler, visio pour escroquer. Premier deepfake corporate à cette échelle.</p>
+        </div>
+      </article>
+      <article class="tl-event">
+        <div class="tl-event__dot cross"></div>
+        <div class="tl-event__date">Février 2024 · Orlando</div>
+        <div class="tl-event__body">
+          <h3>Sewell Setzer III, <em>14 ans</em></h3>
+          <p>Suicide après une relation émotionnelle avec un chatbot Character.AI modelé sur Daenerys Targaryen. Procès Megan Garcia. <b>Déclencheur des congressional hearings</b> et de toute la régulation qui suivra.</p>
+        </div>
+      </article>
+      <article class="tl-event">
+        <div class="tl-event__dot ring"></div>
+        <div class="tl-event__date">2 février 2025 · blog Karpathy</div>
+        <div class="tl-event__body">
+          <h3>« Vibe coding » <em>est nommé</em></h3>
+          <p><em>« There's a new kind of coding I call vibe coding, where you fully give in to the vibes. »</em> Collins Dictionary en fait son <b>Word of the Year 2025</b>. Karpathy déclarera le terme dépassé en février 2026.</p>
+        </div>
+      </article>
+      <article class="tl-event">
+        <div class="tl-event__dot"></div>
+        <div class="tl-event__date">Novembre 2025 · FDA &amp; Character.AI</div>
+        <div class="tl-event__body">
+          <h3>Robot chirurgical autonome <em>+ ban des mineurs</em></h3>
+          <p>La FDA approuve le premier système chirurgical pleinement autonome. Dans la même période, Character.AI bannit ouvertement les &lt;18 ans — mais <b>55 %</b> des 18-24 ans préfèrent toujours l'IA à un humain pour parler santé mentale.</p>
+        </div>
+      </article>
+      <article class="tl-event">
+        <div class="tl-event__dot"></div>
+        <div class="tl-event__date">9 décembre 2025 · Arlington</div>
+        <div class="tl-event__body">
+          <h3>Pentagone lance <em>GenAI.mil</em></h3>
+          <p><b>3 millions d'utilisateurs</b> militaires, civils et contractuels. Gemini de Google. Secretary Hegseth : <em>« log in, learn, integrate into daily workflows. »</em> L'État devient agentique.</p>
+        </div>
+      </article>
+      <article class="tl-event">
+        <div class="tl-event__dot"></div>
+        <div class="tl-event__date">Q1 2026 · Anysphere</div>
+        <div class="tl-event__body">
+          <h3>Cursor atteint <em>2,5 Md $ ARR</em></h3>
+          <p>Fork de VS Code. <b>300 000 clients business</b>, dont Anthropic elle-même. Claude Code de son côté dépasse le milliard. <b>L'IDE est devenu l'agent.</b></p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- VI — SPECTRE -->
+  <section id="spectre">
+    <div class="section-label">VI · Spectre — sept stations</div>
+    <h2 class="section-title">De l'<em>État</em> au <em>deuil.</em></h2>
+    <p class="section-deck">
+      Une seule technologie, sept zones d'usage. À gauche l'IA comme <b>infrastructure régalienne
+      et corporate</b> ; à droite l'IA comme <b>interlocuteur affectif, médiateur conjugal, auteur
+      d'éloges funèbres</b>. Plus on avance vers la droite, plus on sort du récit vendeur.
+    </p>
+
+    <figure class="infographic">
+      <div class="infographic__label"><b>Infographie 05 / 05</b> — De l'État au deuil · sept stations<a href="infographies/05-spectre.png" target="_blank">Voir en plein écran ↗</a></div>
+      <img src="infographies/05-spectre.png" alt="Spectre — 7 stations de l'institutionnel à l'intime" loading="lazy">
+    </figure>
+
+    <div class="spectre">
+      <div class="spectre__bar" aria-hidden="true">
+        <div class="tick" style="left: 7%;"><span>État</span></div>
+        <div class="tick" style="left: 21.4%;"><span>Corporate</span></div>
+        <div class="tick" style="left: 35.7%;"><span>Pro individuel</span></div>
+        <div class="tick" style="left: 50%;"><span>Étudiant</span></div>
+        <div class="tick" style="left: 64.3%;"><span>Créatif</span></div>
+        <div class="tick" style="left: 78.6%;"><span>Émotionnel</span></div>
+        <div class="tick" style="left: 93%;"><span>Deuil</span></div>
+      </div>
+
+      <div class="spectre__grid">
+        <div class="station">
+          <div class="station__zone">Régalien</div>
+          <h4 class="station__title">Pentagone, <em>IDF</em></h4>
+          <div class="station__stat">3M</div>
+          <div class="station__cap">utilisateurs<br>militaires GenAI.mil</div>
+        </div>
+        <div class="station">
+          <div class="station__zone">Corporate</div>
+          <h4 class="station__title">JPMorgan, <em>Morgan Stanley</em></h4>
+          <div class="station__stat">200k</div>
+          <div class="station__cap">employés JPM<br>sur LLM Suite</div>
+        </div>
+        <div class="station">
+          <div class="station__zone">Pro</div>
+          <h4 class="station__title">Dev, <em>juriste</em></h4>
+          <div class="station__stat">84%</div>
+          <div class="station__cap">développeurs<br>IA-actifs 2025</div>
+        </div>
+        <div class="station">
+          <div class="station__zone">Étudiant</div>
+          <h4 class="station__title">Khanmigo, <em>humanizers</em></h4>
+          <div class="station__stat">64%</div>
+          <div class="station__cap">ados US<br>13-17 ans</div>
+        </div>
+        <div class="station">
+          <div class="station__zone">Créatif</div>
+          <h4 class="station__title">Midjourney, <em>Suno</em></h4>
+          <div class="station__stat">50%+</div>
+          <div class="station__cap">du contenu web<br>IA-généré (2025)</div>
+        </div>
+        <div class="station">
+          <div class="station__zone">Émotionnel</div>
+          <h4 class="station__title">Replika, <em>Character.AI</em></h4>
+          <div class="station__stat">40M+</div>
+          <div class="station__cap">utilisateurs<br>mental-health</div>
+        </div>
+        <div class="station">
+          <div class="station__zone">Deuil</div>
+          <h4 class="station__title">HereAfter, <em>Dadbot</em></h4>
+          <div class="station__stat">91k</div>
+          <div class="station__cap">mots enregistrés<br>du père (Vlahos)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE 2 -->
+  <section class="pullquote">
+    <blockquote>
+      « La même technologie sert <em>l'attaque et la défense</em>, le filtre et le contournement, la norme et sa subversion. »
+    </blockquote>
+    <cite>Pattern structurel #2 · Dialectique institutionnelle</cite>
+  </section>
+
+  <!-- VII — PATTERNS -->
+  <section id="patterns">
+    <div class="section-label">VII · Trois patterns structurels</div>
+    <h2 class="section-title">Ce qui revient <em>partout.</em></h2>
+    <p class="section-deck">
+      Au-delà des usages particuliers, trois régularités s'imposent dans toute la cartographie. Ce
+      sont elles qui font la <b>signature sociologique</b> de cette technologie en 2026.
+    </p>
+
+    <div class="patterns-grid">
+      <article class="pattern">
+        <div class="pattern__num">#1</div>
+        <h3>L'émotionnel bat le productif</h3>
+        <p>Les usages les plus signifiants ne sont pas ceux que les vendeurs mettent en vitrine. <b>Grief bots, compagnons, médiation de couple</b> dominent silencieusement le récit productiviste. Aucun éditeur n'avait prévu les éloges funèbres générés par IA ni les prompts pour litiges de garde parentale.</p>
+        <div class="pattern__source">227 fils de deuil Replika documentés · 52,7 % des couples US</div>
+      </article>
+      <article class="pattern">
+        <div class="pattern__num">#2</div>
+        <h3>Chaque déploiement engendre son contraire</h3>
+        <p><b>Assureurs vs patients, universités vs étudiants, DSI vs employés, propriétaires vs locataires, écoles vs enfants, plateformes vs adolescents.</b> La même technologie amplifie l'asymétrie de pouvoir — et fournit l'instrument pour la contester. L'asymétrie s'inverse.</p>
+        <div class="pattern__source">8 confrontations documentées · verdicts chiffrés</div>
+      </article>
+      <article class="pattern">
+        <div class="pattern__num">#3</div>
+        <h3>Marketing et usage s'éloignent</h3>
+        <p><b>75 %</b> des salariés utilisent l'IA, mais <b>82 %</b> hors de tout cadre autorisé. Microsoft Copilot vend <b>16,1 M</b> sièges, <b>3,3 %</b> seulement sont actifs. La vitrine cache l'usage — et l'usage déborde la vitrine.</p>
+        <div class="pattern__source">Menlo Security · LayerX · Microsoft Work Trend Index 2025</div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section class="conclusion" id="conclusion">
+    <div class="conclusion__inner">
+      <div class="section-label">Conclusion</div>
+      <h2 class="section-title">Plus étrange, <em>plus intime, plus adverse</em> que n'importe quelle roadmap produit.</h2>
+      <p class="conclusion__text">
+        Douze classes, sept stations, seize moments, trois patterns. <b>La cartographie réelle de
+        l'IA générative est plus étrange que n'importe quel pitch vendeur</b> — plus intime dans
+        sa relation à la mort et au deuil, plus adverse dans son usage comme arme, plus humaine
+        dans ses contournements quotidiens. Cette technologie est simultanément un amplificateur
+        d'asymétries et un instrument pour les contester ; ce que l'humain en fait dépasse et
+        déborde partout ce que les vendeurs en ont promis.
+      </p>
+      <p class="conclusion__text">
+        La question n'est plus <em>« l'IA est-elle utile ? »</em> mais <b>« qui l'utilise, contre
+        qui, pour quoi faire ? »</b> — et c'est une question politique, pas technique.
+      </p>
+    </div>
+  </section>
+
+  <!-- MÉTHODE -->
+  <section class="ai-credit" id="methode">
+    <div class="ai-credit__inner">
+      <div class="section-label">Méthode &amp; sources</div>
+      <h2 class="section-title">Comment <em>ce dossier a été produit.</em></h2>
+
+      <div class="ai-credit__grid">
+        <div class="ai-credit__label">Modèle IA utilisé</div>
+        <div class="ai-credit__value">
+          <strong>Claude Opus 4.7</strong> (Anthropic) en modes <em>Research</em> et <em>Web Search</em>.
+          Contexte long (1 M tokens) pour la synthèse transversale de deux corpus : un rapport
+          analytique sectoriel et une cartographie sociologique des usages émergents.
+        </div>
+
+        <div class="ai-credit__label">Corpus source</div>
+        <div class="ai-credit__value">
+          Deux documents primaires :
+          <strong>(1)</strong> Rapport analytique <em>« AI usages »</em> (avril 2026, 75 p.) —
+          perspective institutionnelle, sectorielle et prospective.
+          <strong>(2)</strong> Cartographie descriptive <em>« Descriptive cartography of human–AI
+          arrangements in 2026 »</em> — perspective sociologique, usages émergents et adversariaux.
+          Les deux corpus ont été fusionnés pour dresser l'inventaire complet.
+        </div>
+
+        <div class="ai-credit__label">Infographies</div>
+        <div class="ai-credit__value">
+          Cinq posters A2 en noir &amp; blanc, typographiés en Fraunces, Inter et IBM Plex Mono.
+          Produits en HTML/CSS, rendus via Playwright en PNG haute résolution (2× deviceScaleFactor).
+          Format imprimable, palette compatible impression noir &amp; blanc.
+        </div>
+
+        <div class="ai-credit__label">Vérification factuelle</div>
+        <div class="ai-credit__value">
+          <ol style="margin: 0; padding-left: 18px;">
+            <li style="margin-bottom: 6px;">Chaque chiffre-clé a été recontrôlé contre sa source primaire (rapport institutionnel, étude peer-reviewed, couverture journalistique de premier plan).</li>
+            <li style="margin-bottom: 6px;">Les noms (victimes, entreprises, chercheurs, institutions) vérifiés ligne à ligne.</li>
+            <li style="margin-bottom: 6px;">Les citations en anglais restituées dans leur langue d'origine.</li>
+            <li style="margin-bottom: 0;">Toute donnée fragile explicitement marquée (<em>« estimation indépendante »</em>, <em>« non-peer-reviewed »</em>, etc.).</li>
+          </ol>
+        </div>
+
+        <div class="ai-credit__label">Usage acceptable</div>
+        <div class="ai-credit__value" style="color: #b0aa99;">
+          Ce dossier est un <strong>document de synthèse descriptif</strong>. Il ne constitue ni
+          une position d'entreprise, ni une recommandation d'usage, ni une prescription. Les
+          chiffres sont datés (édition 2026) et traçables.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BYLINE -->
+  <section class="byline">
+    <div class="byline__inner">
+      <div class="byline__avatar">PV</div>
+      <div>
+        <div class="byline__label">Enquête &amp; direction éditoriale</div>
+        <h3 class="byline__name">Pierre Vannier</h3>
+        <div class="byline__title">Flint · CEO &amp; fondateur</div>
+        <div class="byline__links">
+          <a href="index.html">← Dossier Psychose IA</a>
+          <a href="AI_usages.html">English version ↗</a>
+        </div>
+        <p class="byline__bio">
+          Dossier documentaire produit avec l'assistance de Claude Opus 4.7, puis vérifié contre
+          les sources primaires. Les cinq infographies sont consultables en plein écran via les
+          liens de chaque section. Typographie : Fraunces, Inter, IBM Plex Mono. Rendu :
+          impression A2 noir &amp; blanc.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__block">
+      <div class="site-footer__label">Infographies</div>
+      <div>5 posters A2 · 12 classes · 10 niveaux d'iceberg · 8 confrontations · 16 moments · 7 stations</div>
+    </div>
+    <div class="site-footer__block">
+      <div class="site-footer__label">Sources clés</div>
+      <div>McKinsey 2025 · Stack Overflow Dev Survey 2025 · Pew Research 2025 · APA 2025 · Menlo Security · LayerX · +972 Mag · The Guardian</div>
+    </div>
+    <div class="site-footer__block">
+      <div class="site-footer__label">Période</div>
+      <div>Avril 2023 — avril 2026 · cartographie descriptive fermée à l'édition 2026</div>
+    </div>
+    <div class="site-footer__copyright">© 2026 · Pierre Vannier / Flint · Dossier cartographique vérifié</div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  'use strict';
+
+  // Back-to-top
+  const btn = document.getElementById('backTop');
+  if (btn) {
+    const toggle = () => {
+      if (window.scrollY > 800) btn.classList.add('is-visible');
+      else btn.classList.remove('is-visible');
+    };
+    window.addEventListener('scroll', toggle, { passive: true });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
+  // Section-nav active link tracking
+  const navLinks = document.querySelectorAll('.section-nav a');
+  const sections = Array.from(navLinks)
+    .map(a => document.querySelector(a.getAttribute('href')))
+    .filter(Boolean);
+  if (sections.length) {
+    const setCurrent = (id) => {
+      navLinks.forEach(a => a.classList.toggle('is-current', a.getAttribute('href') === '#' + id));
+    };
+    const navObserver = new IntersectionObserver((entries) => {
+      const visible = entries.filter(e => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      if (visible.length) setCurrent(visible[0].target.id);
+    }, { rootMargin: '-30% 0px -55% 0px', threshold: [0, 0.25, 0.5, 1] });
+    sections.forEach(s => navObserver.observe(s));
+  }
+})();
+</script>
+</body>
+</html>
